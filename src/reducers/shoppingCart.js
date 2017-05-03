@@ -21,6 +21,14 @@ const shoppingCart = (state = initState, action) => {
 				})
 			}
 
+		case 'REMOVE_ITEM':
+			return {
+				...state,
+				items: state.items.filter(i => {
+					return i.id !== action.id
+				})
+			}
+
 		default:
 			return state
 	}
