@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import AddControls from '../components/ShoppingCart/AddControls'
 import ItemsList from '../components/ShoppingCart/ItemsList'
 import TotalPrice from '../components/ShoppingCart/TotalPrice'
-import { addNewItem, changeQty } from '../actions/cartActions'
+import { addNewItem, changeQty, removeItem } from '../actions/cartActions'
 import { getTotalPrice } from '../reselect/cartShopping'
 
 
@@ -12,7 +12,8 @@ class ShoppingCartContainer extends Component {
     render() {
         return <div>
 	        <AddControls addItemAction={this.props.addNewItemAction}/>
-	        <ItemsList changeQtyAction={this.props.changeQtyAction} items={this.props.items}/>
+	        <ItemsList removeItemAction={this.props.removeItemAction} changeQtyAction={this.props.changeQtyAction}
+	                   items={this.props.items}/>
 	        <TotalPrice total={this.props.totalPrice}/>
         </div>
     }
@@ -28,7 +29,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addNewItemAction: bindActionCreators(addNewItem, dispatch),
-		changeQtyAction: bindActionCreators(changeQty, dispatch)
+		changeQtyAction: bindActionCreators(changeQty, dispatch),
+		removeItemAction: bindActionCreators(removeItem, dispatch)
 	}
 }
 

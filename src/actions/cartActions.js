@@ -11,3 +11,8 @@ export const changeQty = (qty, id) => ({
 	qty,
 	id
 })
+
+export const removeItem = (id) => ({
+	type: 'REMOVE_ITEM',
+	id
+})

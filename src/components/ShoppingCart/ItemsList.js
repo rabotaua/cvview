@@ -7,8 +7,12 @@ export default class ItemsList extends Component {
 	}
 
 	render() {
-		return <ul>
+		return <ul style={{ listStyle: 'none' }}>
 			{this.props.items.map(i => <li key={i.id}>
+				<span onClick={ () => this.props.removeItemAction(i.id) }
+				      style={{ display: 'inline-block', marginRight: 20, cursor: 'pointer' }} title="remove item">
+					&times;
+				</span>
 				{i.name}
 				{ ' ' }
 				<span style={{ color: 'blue' }}>
