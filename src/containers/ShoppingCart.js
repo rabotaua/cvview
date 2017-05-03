@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import AddControls from '../../components/ShoppingCart/AddControls'
-import ItemsList from '../../components/ShoppingCart/ItemsList'
-import TotalPrice from '../../components/ShoppingCart/TotalPrice'
-import { addNewItem, changeQty } from '../../actions/cartActions'
-import { getTotalPrice } from '../../reselect/cartShopping'
+import AddControls from '../components/ShoppingCart/AddControls'
+import ItemsList from '../components/ShoppingCart/ItemsList'
+import TotalPrice from '../components/ShoppingCart/TotalPrice'
+import { addNewItem, changeQty } from '../actions/cartActions'
+import { getTotalPrice } from '../reselect/cartShopping'
 
 
 class ShoppingCartContainer extends Component {
