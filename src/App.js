@@ -3,6 +3,8 @@ import { Provider } from 'react-redux'
 import appStore from './store'
 import ShoppingCart from './containers/ShoppingCart'
 import CounterSmart from './containers/CounterSmart'
+import RestrictedContent from './containers/RestrictedContent'
+
 
 export default class App extends Component {
   render () {
@@ -11,6 +13,7 @@ export default class App extends Component {
         <ShoppingCart/>
         <hr />
         <CounterSmart/>
+        <RestrictedContent/>
       </div>
     </Provider>
   }
