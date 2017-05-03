@@ -1,11 +1,5 @@
 import React from 'react'
 
-// export const CvText = (props) => <div>
-// 	<fieldset>
-// 		<legend>CVTEXT</legend>
-// 		<pre>{JSON.stringify(props.getResumeText)}</pre>
-// 	</fieldset>
-// </div>
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -13,12 +7,14 @@ export class CvText extends React.Component {
 	}
 
 	render () {
-		if (Object.keys(this.props.resume).length === 0) return null
+		if (!Object.keys(this.props.resume).length) return null
+
+		const { personal } = this.props.resume
 
 		return <fieldset>
 			<legend>CVTEXT</legend>
-			<h4>{this.props.resume.personal.name} {this.props.resume.personal.surName}</h4>
-			<pre>{JSON.stringify(this.props)}</pre>
+			<h4>{personal.name} {personal.surName}</h4>
+			{/*<pre>{JSON.stringify(this.props)}</pre>*/}
 		</fieldset>
 	}
 }
