@@ -9,3 +9,7 @@
 [whatwg-fetch](https://github.com/github/fetch)
 
 `import 'whatwg-fetch'` whenever `fetch` is needed
+
+# Thunk
+
+`store.dispatch(dispatch => {dispatch({type:'COUNTER_INCREMENT'});dispatch({type:'COUNTER_INCREMENT'})})`
