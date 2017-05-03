@@ -5,12 +5,14 @@ import ShoppingCart from './containers/ShoppingCart'
 import CounterSmart from './containers/CounterSmart'
 import RestrictedContent from './containers/RestrictedContent'
 import CvTextContainer from './containers/CvTextContainer'
+import { SendMessage } from './components/SendMessage'
 
 export default class App extends Component {
 	render () {
 		return <Provider store={appStore}>
 			<div>
 				<CvTextContainer />
+				<SendMessage/>
 				<ShoppingCart/>
 				<hr />
 				<CounterSmart/>
