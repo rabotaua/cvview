@@ -1,0 +1,141 @@
+{
+  "resume": [
+    {
+      "additionals": [],
+      "contact": {
+        "phone": "0931211213",
+        "additionalPhones": [],
+        "email": "rabotaua022@gmail.com",
+        "skype": "333skype",
+        "portfolio": [
+          "http://1111portf"
+        ],
+        "socialNetworks": [
+          {
+            "type": 3,
+            "subType": 2,
+            "text": "http://facebook.com/1111"
+          }
+        ],
+        "resumeId": 3496188
+      },
+      "educations": [
+        {
+          "id": 4908161,
+          "typeId": 4,
+          "schoolName": "СОШ №5",
+          "location": "Запорожье",
+          "speciality": "",
+          "diploma": "",
+          "year": 2010,
+          "resumeId": 3496188
+        }
+      ],
+      "experiences": [
+        {
+          "companyDescription": "",
+          "id": 8096398,
+          "position": "Дворник",
+          "company": "Двор, ПТОВПЦТХШШУ",
+          "branchId": 16,
+          "description": "<p>Уборка территории</p>",
+          "notebookCompanyId": 0,
+          "period": "4 {1} 2 {0}",
+          "startWork": "2013-04-01T00:00:00",
+          "endWork": "1900-01-01T00:00:00",
+          "recommendationList": [],
+          "companySite": "",
+          "employeesAmount": 0,
+          "resumeId": 3496188
+        }
+      ],
+      "languages": [
+        {
+          "languageId": 3,
+          "skillsLevel": 2,
+          "skillName": "ниже среднего",
+          "languageName": "Французский",
+          "certificate": "",
+          "isCanBeInterviewed": true,
+          "resumeId": 3496188
+        },
+        {
+          "languageId": 104,
+          "skillsLevel": 4,
+          "skillName": "продвинутый",
+          "languageName": "Армянский",
+          "certificate": "",
+          "isCanBeInterviewed": false,
+          "resumeId": 3496188
+        }
+      ],
+      "personal": {
+        "name": "Эдгар",
+        "middleName": "Валерианович",
+        "surName": "Дарияйко",
+        "dateBirth": "1991-01-02T00:00:00",
+        "gender": 1,
+        "cityId": 1,
+        "moving": [],
+        "resumeId": 3496188
+      },
+      "photo": "https://img1.rabota.com.ua/cvphotos/75f17728-1e33-4107-bd01-1f3dc7195849.jpg",
+      "position": {
+        "position": "Дворник",
+        "scheduleId": 4,
+        "salary": 1000,
+        "currencyId": 2,
+        "rubrics": [
+          {
+            "parentId": 0,
+            "experienceId": 1,
+            "vacCount": 0,
+            "id": 120,
+            "ru": null,
+            "ua": null,
+            "en": null
+          },
+          {
+            "parentId": 0,
+            "experienceId": 5,
+            "vacCount": 0,
+            "id": 96,
+            "ru": null,
+            "ua": null,
+            "en": null
+          }
+        ],
+        "resumeId": 3496188
+      },
+      "skill": {
+        "text": "<p>TEST</p>",
+        "resumeId": 3496188
+      },
+      "state": {
+        "level": 1,
+        "anonymous": false,
+        "branchIds": [],
+        "companyIds": [],
+        "viewCount": 1835,
+        "resumeId": 3496188
+      },
+      "trainings": [
+        {
+          "id": 4953435,
+          "name": "Курси медсестер",
+          "location": "Запорожье",
+          "description": "",
+          "year": 2008,
+          "resumeId": 3496188
+        }
+      ],
+      "uiLanguage": 1,
+      "searchState": 1,
+      "updateDate": "2017-05-03T02:03:48.51",
+      "rtfLink": "https://rabota.ua/service/cvexport?resumeId=3496188",
+      "viewLink": "https://rabota.ua/cv/3496188",
+      "resumeCount": 3,
+      "id": 3496188
+    }
+  ]
+}
