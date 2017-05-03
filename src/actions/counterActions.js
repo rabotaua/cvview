@@ -5,3 +5,5 @@ export const counterIncrement = () => ({
 export const counterDecrement = () => ({
   type: 'COUNTER_DECREMENT'
 })
+
+export default {counterIncrement, counterDecrement}
