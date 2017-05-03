@@ -7,7 +7,7 @@ describe('counterReducer', () => {
   })
   it('should handle COUNTER_INCREMENT', () => {
     const state = counterReducer(20, counterIncrement())
-    expect(state).toBe(20)
+	  expect(state).toBe(21)
   })
   it('should handle COUNTER_INCREMENT', () => {
     const state = counterReducer(30, counterDecrement())
