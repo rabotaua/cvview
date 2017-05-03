@@ -6,17 +6,28 @@ import CounterSmart from './containers/CounterSmart'
 import RestrictedContent from './containers/RestrictedContent'
 import CvTextContainer from './containers/CvTextContainer'
 import NotesContainer from './containers/NotesContainer'
-import SendMessage from './components/SendMessage'
+import SendMessage from './containers/SendMessage'
+import NotificationsContainer from './containers/NotificationsContainer'
 
 export default class App extends Component {
 	render () {
 		return <Provider store={appStore}>
 			<div>
-				<CvTextContainer />
-				<NotesContainer/>
-				<SendMessage/>
-
-				<fieldset style={{ marginTop: 100 }}>
+				<NotificationsContainer />
+				<table width="100%">
+					<tbody>
+					<tr>
+						<td width="66%" style={{verticalAlign: 'top'}}>
+							<CvTextContainer />
+						</td>
+						<td style={{verticalAlign: 'top'}}>
+							<SendMessage/>
+							<NotesContainer/>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<fieldset style={{marginTop: 100}}>
 					<legend>Examples</legend>
 					<ShoppingCart/>
 					<hr />
