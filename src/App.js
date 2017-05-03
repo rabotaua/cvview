@@ -6,6 +6,7 @@ import CounterSmart from './containers/CounterSmart'
 import RestrictedContent from './containers/RestrictedContent'
 import CvTextContainer from './containers/CvTextContainer'
 import NotesContainer from './containers/NotesContainer'
+import SendMessage from './components/SendMessage'
 
 export default class App extends Component {
 	render () {
@@ -13,7 +14,7 @@ export default class App extends Component {
 			<div>
 				<CvTextContainer />
 				<NotesContainer/>
-
+				<SendMessage/>
 
 				<fieldset style={{ marginTop: 100 }}>
 					<legend>Examples</legend>
