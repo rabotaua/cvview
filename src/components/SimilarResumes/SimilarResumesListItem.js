@@ -1,10 +1,12 @@
 import React from 'react'
 import ResumePhoto from '../Resume/ResumePhoto'
+import ExperienceListSmall from '../Resume/ExperienceListSmall'
 
 export const SimilarResumesListItem = ({resume, getResumeText}) => {
-	const {personal, position} = resume
+	const {personal, position, experiences, updateDate} = resume
 	const {name, surName, cityId, dateBirth} = personal
 	const {salary} = position
+
 	return <div>
 		<div>
 			<table>
@@ -23,6 +25,10 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 							<span>{dateBirth}</span>
 							<span>{salary}</span>
 						</p>
+						<ExperienceListSmall experiences={experiences}/>
+					</td>
+					<td>
+						{updateDate}
 					</td>
 				</tr>
 				</tbody>
