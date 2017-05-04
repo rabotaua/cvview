@@ -1,13 +1,15 @@
 export const signIn = () => {
+	const id = 966
 	try {
-		localStorage.setItem('auth', true)
+		localStorage.setItem('auth', id)
 	}
 	catch(e) {
 		console.log(e)
 	}
 
 	return {
-		type: 'SIGN_IN'
+		type: 'SIGN_IN',
+		id
 	}
 }
 
