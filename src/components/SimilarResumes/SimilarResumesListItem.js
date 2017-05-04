@@ -8,6 +8,7 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 	const {name, surName, cityId, dateBirth} = personal
 	const {salary} = position
 	const updatedAgo = moment(updateDate).fromNow()
+	const age = moment(dateBirth).fromNow(true)
 
 	return <div>
 		<div>
@@ -23,9 +24,12 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 						</p>
 						<p>
 							<span>{name} {surName}</span>
+							{' '}
 							<span>{cityId}</span>
-							<span>{dateBirth}</span>
-							<span>{salary}</span>
+							{' '}
+							<span>{age}</span>
+							{' '}
+							{salary ? <span>${salary}</span> : null}
 						</p>
 						<ExperienceListSmall experiences={experiences.slice(0, 2)}/>
 					</td>
