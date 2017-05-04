@@ -5,7 +5,7 @@ import ReactModal from 'react-modal'
 
 export class SendVacancyWrapper extends React.Component {
 	state = {
-		isOpen: false
+		isOpen: true
 	}
 
 	showModal = () => this.setState({isOpen: true})
