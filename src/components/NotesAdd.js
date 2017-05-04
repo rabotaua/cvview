@@ -3,14 +3,18 @@ import React, { Component } from 'react'
 export default class NotesAdd extends Component {
 	addNewNote(e) {
 		e.preventDefault()
-		this.props.addNewNoteAction(this.noteInput.value)
+		const inputVal = this.noteInput.value.trim()
+		if (!inputVal.length) return
+
+		this.props.addNewNoteAction(inputVal)
 		this.noteInput.value = ''
 	}
 
 	render() {
 		return <div style={{ margin: '20px 0 30px' }}>
 			<form action="#add_notes" onSubmit={this.addNewNote.bind(this)}>
-				<input ref={ inp => this.noteInput = inp } type="text" placeholder="оставить заметку"/>
+				<input required ref={ inp => this.noteInput = inp } type="text" placeholder="оставить заметку"
+				       style={{ padding: 10 }}/>
 			</form>
 		</div>
 	}
