@@ -13,3 +13,7 @@
 # Thunk
 
 `store.dispatch(dispatch => {dispatch({type:'COUNTER_INCREMENT'});dispatch({type:'COUNTER_INCREMENT'})})`
+
+# Debug
+
+https://youtu.be/FLS-6Errzpc
