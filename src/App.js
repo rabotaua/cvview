@@ -10,6 +10,7 @@ import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getCitiesDictionaryAction } from './actions/dictionaryActions'
+import ContactsContainer from './containers/ContactsContainer'
 
 export default class App extends Component {
 	componentWillMount () {
@@ -24,6 +25,7 @@ export default class App extends Component {
 					<tr>
 						<td width="66%" style={{verticalAlign: 'top'}}>
 							<CvTextContainer />
+							<ContactsContainer/>
 						</td>
 						<td style={{verticalAlign: 'top'}}>
 							<SendMessage/>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { addNewNote, getNotesList } from '../actions/notesActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NotesList from '../components/NotesList'
+import NotesList from '../components/Notes/NotesList'
 
 class NotesContainer extends Component {
 	componentWillMount() {
