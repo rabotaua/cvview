@@ -24,23 +24,19 @@ export default class App extends Component {
 	}
 	render () {
 		return <Provider store={appStore}>
-			<div>
+			<div className="f-main-wrapper">
 				<NotificationsContainer />
-				<table width="100%">
-					<tbody>
-					<tr>
-						<td width="66%" style={{verticalAlign: 'top'}}>
-							<CvTextContainer />
-							<ContactsContainer/>
-						</td>
-						<td style={{verticalAlign: 'top'}}>
-							<SendVacancyContainer />
-							<SendMessage/>
-							<NotesContainer/>
-						</td>
-					</tr>
-					</tbody>
-				</table>
+				<div className="fd-f-left fd-f-g20">
+					<div className="fd-f2">
+						<CvTextContainer />
+						<ContactsContainer/>
+					</div>
+					<div className="fd-f1">
+						<SendVacancyContainer />
+						<SendMessage/>
+						<NotesContainer/>
+					</div>
+				</div>
 				<SimilarResumesContainer />
 				<fieldset style={{marginTop: 100}}>
 					<legend>Examples</legend>

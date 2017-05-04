@@ -10,13 +10,12 @@ export class CvText extends React.Component {
 
 		const { personal, photo } = this.props.resume
 
-		return <fieldset>
-			<legend>CVTEXT</legend>
+		return <div className="f-paper fd-p20">
 			<h4>
 				<img src={photo} alt="user" style={{ height: 100, marginRight: 20, verticalAlign: 'middle' }}/>
 				{personal.name} {personal.surName}
 			</h4>
 			{/*<pre>{JSON.stringify(this.props)}</pre>*/}
-		</fieldset>
+		</div>
 	}
 }
