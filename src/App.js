@@ -10,10 +10,15 @@ import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getCitiesDictionaryAction } from './actions/dictionaryActions'
+import { signIn } from './actions/auth'
 
 export default class App extends Component {
 	componentWillMount () {
 		appStore.dispatch(getCitiesDictionaryAction())
+
+		if (localStorage.getItem('auth')) {
+			appStore.dispatch(signIn())
+		}
 	}
 	render () {
 		return <Provider store={appStore}>

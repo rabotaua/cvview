@@ -1,8 +1,4 @@
-const val = localStorage.getItem('auth')
-const isOldAuth = typeof val === 'boolean'
-const auth = isOldAuth ? false : (parseInt(val, 10) || 0)
-
-const authReducer = (state = auth, {type, id}) => {
+const authReducer = (state = 0, {type, id}) => {
 	if (type === 'SIGN_IN') {
 		return id
 	}
