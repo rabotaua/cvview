@@ -9,8 +9,12 @@ import NotesContainer from './containers/NotesContainer'
 import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
+import { getCitiesDictionaryAction } from './actions/dictionaryActions'
 
 export default class App extends Component {
+	componentWillMount () {
+		appStore.dispatch(getCitiesDictionaryAction())
+	}
 	render () {
 		return <Provider store={appStore}>
 			<div>

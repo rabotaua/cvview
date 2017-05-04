@@ -6,6 +6,7 @@ import resumeReducer from './resumeReducer'
 import notesReducer from './notesReducer'
 import notifyReducer from './notificationsReducer'
 import similarReducer from './similarReducer'
+import citiesDictionaryReducer from './citiesDictionaryReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -14,7 +15,8 @@ const appReducer = combineReducers({
 	resume: resumeReducer,
 	notes: notesReducer,
 	notifications: notifyReducer,
-	similar: similarReducer
+	similar: similarReducer,
+	citiesDictionary: citiesDictionaryReducer
 })
 
 export default appReducer
