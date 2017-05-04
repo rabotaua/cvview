@@ -40,8 +40,6 @@ export default class NotesList extends Component {
 
 		if (!auth) return null
 
-		console.log(notes)
-
 		return <fieldset>
 			<legend>Notes: { notes && notes.length ? notes.length : '' }</legend>
 
