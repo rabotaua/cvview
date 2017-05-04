@@ -3,12 +3,13 @@ import ResumePhoto from '../Resume/ResumePhoto'
 import ExperienceListSmall from '../Resume/ExperienceListSmall'
 import moment from 'moment'
 
-export const SimilarResumesListItem = ({resume, getResumeText}) => {
+export const SimilarResumesListItem = ({resume, citiesDictionary, getResumeText}) => {
 	const {personal, position, experiences, updateDate} = resume
 	const {name, surName, cityId, dateBirth} = personal
 	const {salary} = position
 	const updatedAgo = moment(updateDate).fromNow()
 	const age = moment(dateBirth).fromNow(true)
+	const city = citiesDictionary[cityId].ru
 
 	return <div>
 		<div>
@@ -25,7 +26,7 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 						<p>
 							<span>{name} {surName}</span>
 							{' '}
-							<span>{cityId}</span>
+							<span>{city}</span>
 							{' '}
 							<span>{age}</span>
 							{' '}

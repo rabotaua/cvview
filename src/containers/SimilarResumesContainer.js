@@ -3,7 +3,7 @@ import { SimiliarResumesList } from '../components/SimilarResumes/SimilarResumes
 import { bindActionCreators } from 'redux'
 import { getResumeText } from '../actions/resumeActions'
 
-const mapStateToProps = ({similar}) => ({similar})
+const mapStateToProps = ({similar, citiesDictionary}) => ({similar, citiesDictionary})
 
 const mapDispatchToProps = (dispatch) => ({
 	getResumeText: bindActionCreators(getResumeText, dispatch)
