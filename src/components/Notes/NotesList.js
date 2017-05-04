@@ -36,7 +36,9 @@ export default class NotesList extends Component {
 	}
 
 	render() {
-		const { notes } = this.props
+		const { notes, auth } = this.props
+
+		if (!auth) return null
 
 		return <fieldset>
 			<legend>Notes: { notes && notes.length ? notes.length : '' }</legend>

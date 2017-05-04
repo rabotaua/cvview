@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import NotesList from '../components/Notes/NotesList'
 
-const mapStateToProps = ({notes}) => ({notes})
+const mapStateToProps = ({ notes, auth }) => ({ notes, auth })
 
 const mapDispatchToProps = (dispatch) => ({
 	addNewNoteAction: bindActionCreators(addNewNote, dispatch)
