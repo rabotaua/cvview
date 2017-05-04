@@ -4,5 +4,9 @@ export const getResumeNotes = resumeId => fetch(`http://localhost:3001/note/?res
   .then(res => res.json())
 
 export const addNewNoteApi = data => (
-	fetch(`http://localhost:3001/note/`, { method: 'POST', body: data })
+	fetch(`http://localhost:3001/note/`, {
+		method: 'POST',
+		body: JSON.stringify(data),
+		headers: { 'Content-Type': 'application/json' }
+	})
 )

@@ -4,7 +4,7 @@ export const getNotesList = resumeId => dispatch => {
 	getResumeNotes(resumeId).then(notes => {
 		dispatch({
 			type: 'GET_NOTES_LIST',
-			notes
+			notes: notes.reverse()
 		})
 	})
 }
@@ -13,13 +13,16 @@ export const addNewNote = text => dispatch => {
 
 	const body = {
 		text,
-		id: Date.now(),
 		privateType: true,
+		resumeId: 3496188,
 		createDate: (new Date()).toJSON()
 	}
 
+	const clientId = Date.now()
 	dispatch({
 		type: 'ADD_NEW_NOTE',
+		id: Date.now(),
+		clientId,
 		apiStatus: null,
 		...body
 	})
@@ -30,7 +33,7 @@ export const addNewNote = text => dispatch => {
 		setTimeout(() => {
 			dispatch({
 				type: 'CHANGE_NOTE_STATUS',
-				id: body.id,
+				id: clientId,
 				apiStatus: responseStatus
 			})
 		}, 1000)
