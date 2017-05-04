@@ -5,3 +5,4 @@ export const getCitiesDictionary = () => fetch(`https://api.rabota.ua/dictionary
 
 export const getVacanciesDictionary = notebookId => fetch(`https://api.rabota.ua/company/${notebookId}/vacancies`)
 	.then(res => res.json())
+	.then(({documents}) => documents)

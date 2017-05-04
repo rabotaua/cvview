@@ -1,16 +1,19 @@
-export const signIn = () => {
-	const id = 966
+import { getVacanciesDictionaryAction } from './dictionaryActions'
+
+export const signIn = () => dispatch => {
+	let id = 966
 	try {
 		localStorage.setItem('auth', id)
+		dispatch(getVacanciesDictionaryAction(id))
 	}
 	catch(e) {
 		console.log(e)
 	}
 
-	return {
+	dispatch({
 		type: 'SIGN_IN',
 		id
-	}
+	})
 }
 
 export const signOut = () => {

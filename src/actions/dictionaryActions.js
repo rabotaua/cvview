@@ -22,7 +22,7 @@ export const getCitiesDictionaryAction = () => dispatch => {
 }
 
 export const getVacanciesDictionaryAction = notebookId => dispatch => {
-	getVacanciesDictionary()
+	getVacanciesDictionary(notebookId)
 		.then(vacancies => dispatch({
 			type: 'GET_VACANCIES_DICTIONARY',
 			vacancies
