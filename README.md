@@ -15,7 +15,7 @@
 ```
 store.dispatch(dispatch => {
   dispatch({type:'COUNTER_INCREMENT'}) // async dispatch
-  dispatch({type:'COUNTER_INCREMENT'}) // async dispatch
+  dispatch({type:'SHOW_NOTIFICATION_FOR_USER'}) // async dispatch
 }) 
 ```
 
