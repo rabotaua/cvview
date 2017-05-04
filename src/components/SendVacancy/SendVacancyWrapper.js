@@ -1,22 +1,34 @@
 import React from 'react'
+import SendVacancyTrigger from './SendVacancyTrigger'
+import SendVacancyModal from './SendVacancyModal'
+import ReactModal from 'react-modal'
 
 export class SendVacancyWrapper extends React.Component {
-	minMessageLength = 5
-
 	state = {
-		isOpen: false,
-		message: '',
-		sending: false,
-		error: ''
+		isOpen: false
 	}
+
+	showModal = () => this.setState({isOpen: true})
+	hideModal = () => this.setState({isOpen: false})
 
 	render () {
 		const {auth, resume, vacanciesDictionary, isResumeLoaded} = this.props
-		if (!auth || !isResumeLoaded) return null
+		const {id} = resume
+		const isComponentVisible = auth && isResumeLoaded && vacanciesDictionary.length
 
-		return <div>
-			SendVacancyWrapper
-		</div>
+		if (!isComponentVisible) return null
+
+		if (this.state.isOpen) return <div>modal</div>
+
+		return this.state.isOpen
+			? <ReactModal
+				contentLabel="Send Vacancy"
+				isOpen={this.state.isOpen}
+				shouldCloseOnOverlayClick={true}>
+				<button onClick={this.hideModal}>&times;</button>
+				<SendVacancyModal/>
+			</ReactModal>
+			: <SendVacancyTrigger showModal={this.showModal}/>
 	}
 }
 
