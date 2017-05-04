@@ -11,6 +11,7 @@ import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getCitiesDictionaryAction } from './actions/dictionaryActions'
 import { signIn } from './actions/auth'
+import SendVacancyContainer from './containers/SendVacancyContainer'
 
 export default class App extends Component {
 	componentWillMount () {
@@ -31,6 +32,7 @@ export default class App extends Component {
 							<CvTextContainer />
 						</td>
 						<td style={{verticalAlign: 'top'}}>
+							<SendVacancyContainer />
 							<SendMessage/>
 							<NotesContainer/>
 						</td>
