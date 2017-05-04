@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const ResumePhoto = ({resume, getResumeText}) => {
 	const {id, photo, position} = resume
 	return <div>
-		<img src={photo} alt={position.position} onClick={() => getResumeText(id)}/>
+		<img style={{ cursor: 'pointer' }} src={photo} alt={position.position} onClick={() => getResumeText(id)}/>
 	</div>
 }
 

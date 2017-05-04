@@ -36,16 +36,18 @@ export default class NotesList extends Component {
 	}
 
 	render() {
-		const { notes, auth } = this.props
+		const { notes, auth, resumeId } = this.props
 
 		if (!auth) return null
+
+		console.log(notes)
 
 		return <fieldset>
 			<legend>Notes: { notes && notes.length ? notes.length : '' }</legend>
 
-			<NotesAdd addNewNoteAction={this.props.addNewNoteAction}/>
+			<NotesAdd resumeId={resumeId} addNewNoteAction={this.props.addNewNoteAction}/>
 
-			<ul style={ulStyle}>
+			{ notes && notes.length ? <ul style={ulStyle}>
 				{notes.map(note => {
 					return <li key={note.id} style={ this.noteIsSaving(note) ? { opacity: 0.4 } : null }>
 						<span style={spanStyle}>
@@ -65,7 +67,7 @@ export default class NotesList extends Component {
 
 					</li>
 				})}
-			</ul>
+			</ul> : <p>Заметок еще нет!</p> }
 		</fieldset>
 	}
 }

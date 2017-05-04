@@ -9,12 +9,12 @@ export const getNotesList = resumeId => dispatch => {
 	})
 }
 
-export const addNewNote = text => dispatch => {
+export const addNewNote = (text, id) => dispatch => {
 
 	const body = {
 		text,
 		privateType: true,
-		resumeId: 3496188,
+		resumeId: id,
 		createDate: (new Date()).toJSON()
 	}
 
