@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getNotesList } from '../actions/notesActions'
+import { addNewNote, getNotesList } from '../actions/notesActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import NotesList from '../components/NotesList'
@@ -11,7 +11,7 @@ class NotesContainer extends Component {
 
 	render() {
 		return <div>
-			<NotesList notes={this.props.notes}/>
+			<NotesList addNewNoteAction={this.props.addNewNoteAction} notes={this.props.notes}/>
 		</div>
 	}
 }
@@ -21,7 +21,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	getNotesListAction: bindActionCreators(getNotesList, dispatch)
+	getNotesListAction: bindActionCreators(getNotesList, dispatch),
+	addNewNoteAction: bindActionCreators(addNewNote, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotesContainer)

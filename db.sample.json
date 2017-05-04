@@ -603,14 +603,14 @@
       "id": 1,
       "resumeId": 3496188,
       "text": "Хочет много денег. Надо уменьшить рейт. Возможно…",
-      "private": true,
+      "privateType": true,
       "createDate": "2017-05-03T02:03:48.51"
     },
     {
       "id": 2,
       "resumeId": 3496188,
       "text": "Набрал его, не отвечает",
-      "private": false,
+      "privateType": false,
       "createDate": "2017-05-03T02:05:48.51"
     }
   ]
