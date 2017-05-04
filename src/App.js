@@ -8,6 +8,7 @@ import CvTextContainer from './containers/CvTextContainer'
 import NotesContainer from './containers/NotesContainer'
 import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
+import SimilarResumesContainer from './containers/SimilarResumesContainer'
 
 export default class App extends Component {
 	render () {
@@ -27,6 +28,7 @@ export default class App extends Component {
 					</tr>
 					</tbody>
 				</table>
+				<SimilarResumesContainer />
 				<fieldset style={{marginTop: 100}}>
 					<legend>Examples</legend>
 					<ShoppingCart/>
