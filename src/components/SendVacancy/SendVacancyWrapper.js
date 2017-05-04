@@ -1,6 +1,6 @@
 import React from 'react'
 import SendVacancyTrigger from './SendVacancyTrigger'
-import SendVacancyModal from './SendVacancyModal'
+import SendVacancyForm from './SendVacancyForm'
 import ReactModal from 'react-modal'
 
 export class SendVacancyWrapper extends React.Component {
@@ -18,15 +18,13 @@ export class SendVacancyWrapper extends React.Component {
 
 		if (!isComponentVisible) return null
 
-		if (this.state.isOpen) return <div>modal</div>
-
 		return this.state.isOpen
 			? <ReactModal
 				contentLabel="Send Vacancy"
 				isOpen={this.state.isOpen}
 				shouldCloseOnOverlayClick={true}>
 				<button onClick={this.hideModal}>&times;</button>
-				<SendVacancyModal/>
+				<SendVacancyForm resumeId={id} vacanciesDictionary={vacanciesDictionary}/>
 			</ReactModal>
 			: <SendVacancyTrigger showModal={this.showModal}/>
 	}
