@@ -1,12 +1,10 @@
-const auth = localStorage.getItem('auth') || false
-
-const authReducer = (state = auth, action) => {
-	if (action.type === 'SIGN_IN') {
-		return true
+const authReducer = (state = 0, {type, id}) => {
+	if (type === 'SIGN_IN') {
+		return id
 	}
 
-	if (action.type === 'SIGN_OUT') {
-		return false
+	if (type === 'SIGN_OUT') {
+		return 0
 	}
 
 	return state

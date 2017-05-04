@@ -1,5 +1,6 @@
 import { getResume } from '../api/resumeApi'
 import { getSimilarResumesAction } from './similarActions'
+import { getNotesList } from './notesActions'
 
 export const getResumeText = id => dispatch => {
 	// jQuery.getJSON('.....123').then(resume => {
@@ -11,6 +12,8 @@ export const getResumeText = id => dispatch => {
 			resume
 		})
 
+		dispatch(getNotesList(resume.id))
 		dispatch(getSimilarResumesAction(resume.id))
+
 	})
 }

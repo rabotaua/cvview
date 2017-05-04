@@ -1,6 +1,6 @@
 const notesReducer = (state = [], action) => {
 	if (action.type === 'GET_NOTES_LIST') {
-		return [...state, ...action.notes]
+		return action.notes
 	}
 	if (action.type === 'ADD_NEW_NOTE') {
 		const { text, id, privateType, createDate, apiStatus } = action

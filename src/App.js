@@ -10,11 +10,16 @@ import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getCitiesDictionaryAction } from './actions/dictionaryActions'
-import ContactsContainer from './containers/ContactsContainer'
+import { signIn } from './actions/auth'
+import SendVacancyContainer from './containers/SendVacancyContainer'
 
 export default class App extends Component {
 	componentWillMount () {
 		appStore.dispatch(getCitiesDictionaryAction())
+
+		if (localStorage.getItem('auth')) {
+			appStore.dispatch(signIn())
+		}
 	}
 	render () {
 		return <Provider store={appStore}>
@@ -25,9 +30,9 @@ export default class App extends Component {
 					<tr>
 						<td width="66%" style={{verticalAlign: 'top'}}>
 							<CvTextContainer />
-							<ContactsContainer/>
 						</td>
 						<td style={{verticalAlign: 'top'}}>
+							<SendVacancyContainer />
 							<SendMessage/>
 							<NotesContainer/>
 						</td>
