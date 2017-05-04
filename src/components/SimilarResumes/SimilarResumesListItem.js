@@ -1,18 +1,20 @@
 import React from 'react'
 import ResumePhoto from '../Resume/ResumePhoto'
 import ExperienceListSmall from '../Resume/ExperienceListSmall'
+import moment from 'moment'
 
 export const SimilarResumesListItem = ({resume, getResumeText}) => {
 	const {personal, position, experiences, updateDate} = resume
 	const {name, surName, cityId, dateBirth} = personal
 	const {salary} = position
+	const updatedAgo = moment(updateDate).fromNow()
 
 	return <div>
 		<div>
-			<table>
+			<table width="100%">
 				<tbody>
 				<tr>
-					<td>
+					<td width="1">
 						<ResumePhoto resume={resume} getResumeText={getResumeText}/>
 					</td>
 					<td>
@@ -27,8 +29,8 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 						</p>
 						<ExperienceListSmall experiences={experiences}/>
 					</td>
-					<td>
-						{updateDate}
+					<td width="1" style={{whiteSpace: 'nowrap'}}>
+						{updatedAgo}
 					</td>
 				</tr>
 				</tbody>
