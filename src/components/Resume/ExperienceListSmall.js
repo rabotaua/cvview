@@ -1,11 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
-const ExperienceListSmall = ({experiences = []}) => experiences.length ? <div>
-	{experiences.map(({id, position, startWork, endWork}) => <div key={id}>
-		{position} {startWork} {endWork}
-	</div>)}
-</div> : null
+const ExperienceListItemSmall = ({position, startWork, endWork}) => {
+	const hasEndWokr = endWork && endWork !== '1900-01-01T00:00:00'
+	const period = hasEndWokr ? moment.duration(moment(endWork).diff(startWork)).humanize() : 'till now'
+	return <div>
+		{position} {period}
+
+	</div>
+}
+
+const ExperienceListSmall = ({experiences = []}) => {
+	if (!experiences.length) return null
+
+	return <div>
+		{experiences.map(exp => <ExperienceListItemSmall key={exp.id} {...exp} />)}
+	</div>
+}
 
 ExperienceListSmall.propTypes = {
 	experiences: PropTypes.arrayOf(PropTypes.shape({

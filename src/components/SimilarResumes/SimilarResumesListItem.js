@@ -27,7 +27,7 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 							<span>{dateBirth}</span>
 							<span>{salary}</span>
 						</p>
-						<ExperienceListSmall experiences={experiences}/>
+						<ExperienceListSmall experiences={experiences.slice(0, 2)}/>
 					</td>
 					<td width="1" style={{whiteSpace: 'nowrap'}}>
 						{updatedAgo}
