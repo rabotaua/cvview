@@ -12,7 +12,12 @@
 
 # Thunk
 
-`store.dispatch(dispatch => {dispatch({type:'COUNTER_INCREMENT'});dispatch({type:'COUNTER_INCREMENT'})})`
+```
+store.dispatch(dispatch => {
+	dispatch({type:'COUNTER_INCREMENT'}) // async dispatch
+	dispatch({type:'COUNTER_INCREMENT'}) // async dispatch
+}) 
+```
 
 # Debug
 
