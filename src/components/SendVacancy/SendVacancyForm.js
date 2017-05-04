@@ -29,7 +29,7 @@ export class SendVacancyForm extends React.Component {
 	onVacancyChange = ({target: {value}}) => {
 		const isVacancyErrorVisible = !value.length
 		this.setState({
-			selectedVacancyId: value,
+			selectedVacancyId: parseInt(value || '0', 10),
 			isVacancyErrorVisible,
 			isSubmitButtonDisabled: this.state.sending || isVacancyErrorVisible || !this.state.message.length || this.state.isMinLengthErrorVisible
 		})
@@ -37,8 +37,17 @@ export class SendVacancyForm extends React.Component {
 
 	// onChange = ({target: {name, value}}) => this.setState({[name]: value})
 
+	doSubmit = event => {
+		event.preventDefault()
+		if (this.state.isSubmitButtonDisabled) {
+			return
+		}
+
+		this.props.onSubmit(this.state.selectedVacancyId, this.state.message)
+	}
+
 	render () {
-		return <div>
+		return <form onSubmit={this.doSubmit}>
 			<p>
 				<textarea value={this.state.message} onChange={this.onMessageChange} disabled={this.state.sending} placeholder="type your message here..."/>
 				{this.state.isMinLengthErrorVisible ?
@@ -55,7 +64,7 @@ export class SendVacancyForm extends React.Component {
 			<p>
 				<input type="submit" value="Submit" disabled={this.state.isSubmitButtonDisabled}/>
 			</p>
-		</div>
+		</form>
 	}
 }
 
