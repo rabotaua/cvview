@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const SimilarResumesListItem = ({personal, position}) => <div>
+export const SimilarResumesListItem = ({id, personal, position, getResumeText}) => <div>
 	<div>
-		<strong>{position.position}</strong>
+		<a href="#" onClick={event => getResumeText(id)}>{position.position}</a>
 		<span>{personal.name}</span>
 		<span>{personal.surName}</span>
 	</div>
