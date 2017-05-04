@@ -6,25 +6,54 @@ export class SendVacancyForm extends React.Component {
 		const {resumeId, vacanciesDictionary} = this.props
 		this.resumeId = resumeId
 		this.vacanciesDictionary = vacanciesDictionary
+		this.minMessageLength = 5
 		this.state = {
 			message: '',
 			sending: false,
-			selectedVacancyId: ''
+			selectedVacancyId: '',
+			isMinLengthErrorVisible: false,
+			isVacancyErrorVisible: false,
+			isSubmitButtonDisabled: true
 		}
 	}
 
-	onChange = ({target}) => this.setState({[target.name]: target.value})
+	onMessageChange = ({target: {value}}) => {
+		const isMinLengthErrorVisible = value.length && value.length < this.minMessageLength
+		this.setState({
+			message: value,
+			isMinLengthErrorVisible,
+			isSubmitButtonDisabled: this.state.sending || !this.state.selectedVacancyId || isMinLengthErrorVisible
+		})
+	}
+
+	onVacancyChange = ({target: {value}}) => {
+		const isVacancyErrorVisible = !value.length
+		this.setState({
+			selectedVacancyId: value,
+			isVacancyErrorVisible,
+			isSubmitButtonDisabled: this.state.sending || isVacancyErrorVisible || !this.state.message.length || this.state.isMinLengthErrorVisible
+		})
+	}
+
+	// onChange = ({target: {name, value}}) => this.setState({[name]: value})
 
 	render () {
 		return <div>
 			<p>
-				<textarea name="message" value={this.state.message} onChange={this.onChange} disabled={this.state.sending} placeholder="type your message here..."/>
+				<textarea value={this.state.message} onChange={this.onMessageChange} disabled={this.state.sending} placeholder="type your message here..."/>
+				{this.state.isMinLengthErrorVisible ?
+					<span style={{color: 'red'}}>Should be at least 5 chars</span> : null}
 			</p>
 			<p>
-				<select name="selectedVacancyId" value={this.state.selectedVacancyId} onChange={this.onChange} disabled={this.state.sending}>
+				<select value={this.state.selectedVacancyId} onChange={this.onVacancyChange} disabled={this.state.sending}>
 					<option value="">select vacancy</option>
 					{this.props.vacanciesDictionary.map(vac => <option key={vac.id} value={vac.id}>{vac.name}</option>)}
 				</select>
+				{this.state.isVacancyErrorVisible ?
+					<span style={{color: 'red'}}>You need to make this choice</span> : null}
+			</p>
+			<p>
+				<input type="submit" value="Submit" disabled={this.state.isSubmitButtonDisabled}/>
 			</p>
 		</div>
 	}

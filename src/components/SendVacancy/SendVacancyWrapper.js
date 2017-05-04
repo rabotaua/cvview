@@ -24,7 +24,7 @@ export class SendVacancyWrapper extends React.Component {
 				isOpen={this.state.isOpen}
 				shouldCloseOnOverlayClick={true}>
 				<button onClick={this.hideModal}>&times;</button>
-				<SendVacancyForm resumeId={id} vacanciesDictionary={vacanciesDictionary}/>
+				<SendVacancyForm vacanciesDictionary={vacanciesDictionary}/>
 			</ReactModal>
 			: <SendVacancyTrigger showModal={this.showModal}/>
 	}
