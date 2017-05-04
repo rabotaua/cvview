@@ -3,6 +3,7 @@ import ReactModal from 'react-modal'
 import { connect } from 'react-redux'
 import { notifyError, notifySuccess } from '../actions/notifyActions'
 import { bindActionCreators } from 'redux'
+import { isResumeLoadedSelector } from '../reselect/isResumeLoadedSelector'
 
 export class SendMessage extends React.Component {
 	minMessageLength = 5
@@ -47,7 +48,7 @@ export class SendMessage extends React.Component {
 	}
 
 	render () {
-		if (!this.props.auth || !Object.keys(this.props.resume).length) return null
+		if (!this.props.auth || !this.props.isResumeLoaded) return null
 
 		if (this.state.isOpen) {
 			const isMinLengthErrorVisible = this.state.message.length && this.state.message.length < this.minMessageLength
@@ -77,7 +78,12 @@ export class SendMessage extends React.Component {
 	}
 }
 
-const mapStateToProps = ({auth, resume}) => ({auth, resume})
+const mapStateToProps = state => ({
+	auth: state.auth,
+	resume: state.resume,
+	isResumeLoaded: isResumeLoadedSelector(state)
+})
+
 const mapDispatchToProps = (dispatch) => ({
 	notifySuccess: bindActionCreators(notifySuccess, dispatch),
 	notifyError: bindActionCreators(notifyError, dispatch)
