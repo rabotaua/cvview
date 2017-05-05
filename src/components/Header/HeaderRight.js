@@ -1,5 +1,5 @@
 import React from 'react'
-import authHoc from './authHoc'
+import authHoc from '../authHoc'
 
 const btnStyle = {
 	cursor: 'pointer',
@@ -11,8 +11,8 @@ const btnStyle = {
 	color: '#999'
 }
 
-const Logged = ({ signOut }) => <p>
-	Hello, %username%
+const Logged = ({ signOut, userName }) => <p>
+	Hello, {userName}
 
 	<span style={btnStyle} onClick={signOut}>
 		log out..

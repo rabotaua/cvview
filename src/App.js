@@ -14,6 +14,7 @@ import { signIn } from './actions/authActions'
 import SendVacancyContainer from './containers/SendVacancyContainer'
 import ContactsContainer from './containers/ContactsContainer'
 import Header from './containers/Header'
+import { getUserDataAction } from './actions/userDataActions'
 
 export default class App extends Component {
 	componentWillMount () {
@@ -21,6 +22,9 @@ export default class App extends Component {
 
 		if (localStorage.getItem('auth')) {
 			appStore.dispatch(signIn())
+
+			const rndUserID = ~~(Math.random() * 5)
+			appStore.dispatch(getUserDataAction(rndUserID))
 		}
 	}
 	render () {

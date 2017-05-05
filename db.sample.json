@@ -15,18 +15,8 @@
           "resumeId": 7718874
         }
       ],
-      "contact": {
-        "phone": "063 3351333",
-        "additionalPhones": [
-          "099 6551354",
-          "076 1351231"
-        ],
-        "email": "Natalyna@ukr.net",
-        "skype": "natalyna1986",
-        "portfolio": [],
-        "socialNetworks": [],
-        "resumeId": 7718874
-      },
+      "lastOpenedContacts": "2015-08-01T00:00:00",
+      "contact": null,
       "educations": [
         {
           "id": 3778763,
@@ -227,6 +217,7 @@
     },
     {
       "additionals": [],
+      "lastOpenedContacts": "2015-09-02T08:55:00",
       "contact": {
         "phone": "0957014616",
         "additionalPhones": [],
@@ -343,15 +334,7 @@
           "resumeId": 10466814
         }
       ],
-      "contact": {
-        "phone": "0968575449",
-        "additionalPhones": [],
-        "email": "ylyachaban8@gmail.com",
-        "skype": "",
-        "portfolio": [],
-        "socialNetworks": [],
-        "resumeId": 10466814
-      },
+      "contact": null,
       "educations": [
         {
           "id": 5491773,
@@ -465,6 +448,7 @@
     },
     {
       "additionals": [],
+      "lastOpenedContacts": null,
       "contact": {
         "phone": "0931211213",
         "additionalPhones": [
@@ -618,6 +602,43 @@
       "text": "Набрал его, не отвечает",
       "privateType": false,
       "createDate": "2017-05-03T02:05:48.51"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Anton Semenov",
+      "unusedContacts": 1
+    },
+    {
+      "id": 1,
+      "name": "Alexey Ivanov",
+      "unusedContacts": 10
+    },
+    {
+      "id": 2,
+      "name": "Mark Kovalev",
+      "unusedContacts": 4
+    },
+    {
+      "id": 3,
+      "name": "Dmitry Krasov",
+      "unusedContacts": 1
+    },
+    {
+      "id": 4,
+      "name": "John Smith",
+      "unusedContacts": 2
+    },
+    {
+      "id": 5,
+      "name": "Alexandr Petrov",
+      "unusedContacts": 30
+    },
+    {
+      "id": 6,
+      "name": "Anton Semenov",
+      "unusedContacts": 1
     }
   ]
 }
