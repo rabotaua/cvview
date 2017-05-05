@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export default IfLoggedComponent => (IfUnLoggedComponent = null) => {
+const emptyComponent = () => null
+
+export default IfLoggedComponent => (IfUnLoggedComponent = emptyComponent) => {
 	class authHoc extends Component {
 		render() {
+
+			if (typeof IfUnLoggedComponent !== 'function') {
+				IfUnLoggedComponent = () => null
+			}
+
 			const { auth } = this.props
 			return auth ? <IfLoggedComponent {...this.props} /> : <IfUnLoggedComponent {...this.props} />
 		}

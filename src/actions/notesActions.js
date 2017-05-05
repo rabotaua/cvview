@@ -36,6 +36,6 @@ export const addNewNote = (text, id) => dispatch => {
 				id: clientId,
 				apiStatus: responseStatus
 			})
-		}, 1000)
+		}, ~~(Math.random() * 2500))
 	})
 }
