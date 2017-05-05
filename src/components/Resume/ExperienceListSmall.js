@@ -3,12 +3,10 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 
 const ExperienceListItemSmall = ({position, startWork, endWork}) => {
-	const hasEndWokr = endWork && endWork !== '1900-01-01T00:00:00'
-	const period = hasEndWokr ? moment.duration(moment(endWork).diff(startWork)).humanize() : 'till now'
-	return <div>
-		{position} {period}
+	const hasEndWork = endWork && endWork !== '1900-01-01T00:00:00'
+	const period = hasEndWork ? moment.duration(moment(endWork).diff(startWork)).humanize() : 'till now'
 
-	</div>
+	return <div> {position} {period} </div>
 }
 
 const ExperienceListSmall = ({experiences = []}) => {

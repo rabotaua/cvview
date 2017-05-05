@@ -10,7 +10,7 @@ import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getCitiesDictionaryAction } from './actions/dictionaryActions'
-import { signIn } from './actions/auth'
+import { signIn } from './actions/authActions'
 import SendVacancyContainer from './containers/SendVacancyContainer'
 import ContactsContainer from './containers/ContactsContainer'
 
