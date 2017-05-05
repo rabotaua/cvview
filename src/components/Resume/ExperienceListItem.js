@@ -1,8 +1,12 @@
 import React from 'react'
+import CompanyName from './CompanyName'
+import Position from './Position'
+import WorkPeriod from './WorkPeriod'
 
 const ExperienceListItem = (props) => {
-	const { experience } = props
-
+	const { experience, branches } = props
+	const branchName = branches.filter(branch => branch.id ==experience.branchId)[0].ru
+	const cityname = cities[cityid].ru
 	// {
 	// 	"id": 8856658,
 	// 	"position": "Старший управляющий",
@@ -16,19 +20,29 @@ const ExperienceListItem = (props) => {
 	// 	"employeesAmount": 0,
 	// }
 
-	const companyNameAsText = <span>llllll:</span>
-	const companyNameAsLink = <a href="https://rabota.ua/company">link:</a>
-	const companyName = experience.notebookCompanyId ? companyNameAsLink : companyNameAsText
+	// const companyNameAsText = <span>{experience.company}</span>
+	// const companyNameAsLink = <a href={'https://rabota.ua/company/'+ experience.notebookCompanyId}>{experience.company}</a>
+	// const companyName = experience.notebookCompanyId ? companyNameAsLink : companyNameAsText
 
 	return <div>
-		<h1>{experience.notebookCompanyId}</h1>
-		{companyName}
-		{experience.position}
+		<h3><strong>Position:</strong></h3>
+		<Position position={experience.position} />
 		<br/>
-		{experience.company}
-		<br/>
-		<div dangerouslySetInnerHTML={{__html: experience.description}}></div>
 
+		<h3><strong>Work Period:</strong></h3>
+		<WorkPeriod {...experience} />
+		<br/>
+
+		<h3><strong>Company Name:</strong></h3>
+		<CompanyName id={experience.notebookCompanyId} name={experience.company} />
+		<h4>branch: {branchName}</h4>
+		{/*<CompanyName2 {...experience} />*/}
+		{/*same*/}
+		{/*<CompanyName2 employeesAmount={experience.employeesAmount} endWork={experience.endWork} />*/}
+		<br/>
+
+		<h3><strong>Description:</strong></h3>
+		<div dangerouslySetInnerHTML={{__html: experience.description}}></div>
 	</div>
 }
 

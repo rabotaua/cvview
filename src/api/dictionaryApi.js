@@ -6,3 +6,6 @@ export const getCitiesDictionary = () => fetch(`https://api.rabota.ua/dictionary
 export const getVacanciesDictionary = notebookId => fetch(`https://api.rabota.ua/company/${notebookId}/vacancies`)
 	.then(res => res.json())
 	.then(({documents}) => documents)
+
+export const getBranchesDictionary = () => fetch(`https://api.rabota.ua/dictionary/branch`)
+	.then(res => res.json())

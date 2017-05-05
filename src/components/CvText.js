@@ -1,5 +1,5 @@
 import React from 'react'
-import ExperienceListItem from '../components/Resume/ExperienceListItem'
+import ExperienceList from '../components/Resume/ExperienceList'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -10,6 +10,8 @@ export class CvText extends React.Component {
 		if (!this.props.isResumeLoaded) return null
 
 		const { personal, photo, experiences, skill } = this.props.resume
+
+
 		// same as
 		// const personal = this.props.resume.personal
 		// const photo = this.props.resume.photo
@@ -23,14 +25,15 @@ export class CvText extends React.Component {
 
 		// this.props.resume.experiences[1].companySite
 
-		return <div>
-			<h3>Skill</h3>
+		return <fieldset>
+			<legend>CVTEXT</legend>
+			<h2><strong>Skill</strong></h2>
 			<div dangerouslySetInnerHTML={{__html: skill.text}} />
 
-			<h3>Exp</h3>
-			<div>{experiences.map(experience => <ExperienceListItem key={experience.id} experience={experience} />)}</div>
+			<h2><strong>Exp</strong></h2>
+			<ExperienceList experiences={experiences} branches={this.props.branches} />
 
-		</div>
+		</fieldset>
 
 		// // return <fieldset>
 		// // 	<legend>CVTEXT</legend>

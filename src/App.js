@@ -9,15 +9,18 @@ import NotesContainer from './containers/NotesContainer'
 import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
-import { getCitiesDictionaryAction } from './actions/dictionaryActions'
+import { getCitiesDictionaryAction, getBranchesDictionaryAction } from './actions/dictionaryActions'
 import { signIn } from './actions/authActions'
 import SendVacancyContainer from './containers/SendVacancyContainer'
 import ContactsContainer from './containers/ContactsContainer'
 import Header from './containers/Header'
+import BranchesDemoContainer from './containers/BranchesDemoContainer'
+
 
 export default class App extends Component {
 	componentWillMount () {
 		appStore.dispatch(getCitiesDictionaryAction())
+		appStore.dispatch(getBranchesDictionaryAction())
 
 		if (localStorage.getItem('auth')) {
 			appStore.dispatch(signIn())

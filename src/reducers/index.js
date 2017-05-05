@@ -8,6 +8,7 @@ import notifyReducer from './notificationsReducer'
 import similarReducer from './similarReducer'
 import citiesDictionaryReducer from './citiesDictionaryReducer'
 import vacanciesDictionaryReducer from './vacanciesDictionaryReducer'
+import branchesDictionaryReducer from './branchesDictionaryReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
 	notifications: notifyReducer,
 	similar: similarReducer,
 	citiesDictionary: citiesDictionaryReducer,
+	branchesDictionary: branchesDictionaryReducer,
 	vacanciesDictionary: vacanciesDictionaryReducer
 })
 
