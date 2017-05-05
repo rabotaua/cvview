@@ -15,6 +15,7 @@ import SendVacancyContainer from './containers/SendVacancyContainer'
 import ContactsContainer from './containers/ContactsContainer'
 import Header from './containers/Header'
 import { getUserDataAction } from './actions/userDataActions'
+import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 
 export default class App extends Component {
 	componentWillMount () {
@@ -56,6 +57,7 @@ export default class App extends Component {
 					<CounterSmart/>
 					<RestrictedContent/>
 				</fieldset>
+				<InviteJobsearcherContainer/>
 			</div>
 		</Provider>
 	}
