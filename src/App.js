@@ -10,9 +10,10 @@ import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getCitiesDictionaryAction } from './actions/dictionaryActions'
-import { signIn } from './actions/auth'
+import { signIn } from './actions/authActions'
 import SendVacancyContainer from './containers/SendVacancyContainer'
 import ContactsContainer from './containers/ContactsContainer'
+import Header from './containers/Header'
 
 export default class App extends Component {
 	componentWillMount () {
@@ -25,17 +26,19 @@ export default class App extends Component {
 	render () {
 		return <Provider store={appStore}>
 			<div>
+				<Header/>
 				<NotificationsContainer />
-				<table width="100%">
+				<table style={{ marginTop: 100 }} width="100%">
 					<tbody>
 					<tr>
 						<td width="66%" style={{verticalAlign: 'top'}}>
 							<CvTextContainer />
 							<ContactsContainer/>
 						</td>
-						<td style={{verticalAlign: 'top'}}>
+						<td style={{ verticalAlign: 'top', paddingTop: 10 }}>
 							<SendVacancyContainer />
 							<SendMessage/>
+							<br/>
 							<NotesContainer/>
 						</td>
 					</tr>
