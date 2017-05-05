@@ -11,8 +11,7 @@ export default class ContactsAndSocialWrap extends Component {
 		if (!contacts)
 			return <OpenContacts openContacts={this.props.openContactsAction} unUsedContacts={unUsedContacts}/>
 
-
-		return <div className="fd-f-between" style={{ padding: 30, margin: 40, border: '1px solid #ddd' }}>
+		return <div className="f-paper fd-p20 fd-f-between">
 			<div>
 				<ContactsPhones
 					additionalPhones={contacts.additionalPhones}

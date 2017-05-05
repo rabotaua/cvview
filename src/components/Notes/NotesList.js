@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import NotesAdd from './NotesAdd'
 
-
 const ulStyle = {
 	margin: 0,
 	listStyleType: 'none',
@@ -40,8 +39,8 @@ export default class NotesList extends Component {
 
 		if (!auth) return null
 
-		return <fieldset>
-			<legend>Notes: { notes && notes.length ? notes.length : '' }</legend>
+		return <div className="f-paper fd-p20">
+			<p>Notes: { notes && notes.length ? notes.length : '' }</p>
 
 			<NotesAdd resumeId={resumeId} addNewNoteAction={this.props.addNewNoteAction}/>
 
@@ -49,7 +48,7 @@ export default class NotesList extends Component {
 				{notes.map(note => {
 					return <li key={note.id} style={ this.noteIsSaving(note) ? { opacity: 0.4 } : null }>
 						<span style={spanStyle}>
-							{ note.private ? <u>private note</u> : '' }
+							{ note.private ? <span style={{textDecoration: 'line-through'}}>private note</span> : '' }
 							{ ' ' }
 							{ this.formatDate(note.createDate) }
 						</span>
@@ -66,6 +65,6 @@ export default class NotesList extends Component {
 					</li>
 				})}
 			</ul> : <p>Заметок еще нет!</p> }
-		</fieldset>
+		</div>
 	}
 }

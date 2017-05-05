@@ -9,7 +9,7 @@ export class CvText extends React.Component {
 	render () {
 		if (!this.props.isResumeLoaded) return null
 
-		const { personal, photo, experiences, skill } = this.props.resume
+		const {experiences, skill} = this.props.resume
 
 
 		// same as
@@ -25,15 +25,14 @@ export class CvText extends React.Component {
 
 		// this.props.resume.experiences[1].companySite
 
-		return <fieldset>
-			<legend>CVTEXT</legend>
+		return <div className="f-paper fd-p20">
 			<h2><strong>Skill</strong></h2>
 			<div dangerouslySetInnerHTML={{__html: skill.text}} />
 
 			<h2><strong>Exp</strong></h2>
 			<ExperienceList experiences={experiences} branches={this.props.branches} />
 
-		</fieldset>
+		</div>
 
 		// // return <fieldset>
 		// // 	<legend>CVTEXT</legend>

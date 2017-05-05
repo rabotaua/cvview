@@ -1,5 +1,5 @@
 import React from 'react'
-import InviteTemplatesList from "./InviteTemplatesList";
+import InviteTemplatesList from './InviteTemplatesList'
 
 export default class InviteJobsearcherDialog extends React.Component {
 	constructor() {
@@ -43,7 +43,7 @@ export default class InviteJobsearcherDialog extends React.Component {
 					onChange={this.onTextChange}
 					ref={input => this.inviteTextInput = input}
 					name="Invite text" cols="70" rows="10"
-				></textarea>
+				/>
 				<input type="submit" onSubmit={this.addInviteTemplate.bind(this)}/>
 			</form>
 		</div>

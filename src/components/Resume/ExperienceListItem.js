@@ -5,7 +5,7 @@ import WorkPeriod from './WorkPeriod'
 
 const ExperienceListItem = (props) => {
 	const { experience, branches } = props
-	const branchName = branches.filter(branch => branch.id === experience.branchId)[0].ru
+	const branchName = (branches.filter(branch => branch.id === experience.branchId)[0] || {ru: ''}).ru
 	// const cityname = cities[cityid].ru
 	// {
 	// 	"id": 8856658,
@@ -42,7 +42,7 @@ const ExperienceListItem = (props) => {
 		<br/>
 
 		<h3><strong>Description:</strong></h3>
-		<div dangerouslySetInnerHTML={{__html: experience.description}}></div>
+		<div dangerouslySetInnerHTML={{__html: experience.description}}/>
 	</div>
 }
 

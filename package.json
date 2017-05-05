@@ -22,7 +22,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
-    "start": "concurrently \"npm run start:db\" \"npm run start:react\"",
+    "start": "concurrently \"npm run seed\" \"npm run start:db\" \"npm run start:react\"",
     "start:react": "react-scripts start",
     "start:db": "json-server --watch db.json --host 0.0.0.0 --port 3001",
     "build": "react-scripts build",
