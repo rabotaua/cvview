@@ -1,0 +1,24 @@
+import React from 'react'
+
+export default class TemplatesList extends React.Component {
+	selectTemplate(e) {
+		const id = e.target.value
+		const targetTemplate = this.props.templates.filter(template => {
+			return template.id == id
+		}).shift()
+		this.props.selectInviteTemplate(targetTemplate)
+	}
+	render() {
+		const templates = this.props.templates.map(template => {
+			return <option
+				key={template.id}
+				value={template.id}>{template.lng}</option>
+		})
+		return <ul>
+			<h3>Templates list</h3>
+			<select name="invite_templates" onChange={this.selectTemplate.bind(this)}>
+				{templates}
+			</select>
+		</ul>
+	}
+}

@@ -11,7 +11,7 @@ export const SimilarResumesListItem = ({resume, citiesDictionary, getResumeText}
 	const {salary} = position
 	const updatedAgo = moment(updateDate).fromNow()
 	const age = moment(dateBirth).fromNow(true)
-	const city = citiesDictionary[cityId].ru
+	const city = citiesDictionary[cityId] ? citiesDictionary[cityId].ru : ''
 
 	const getResume = id => {
 		getResumeText(id)

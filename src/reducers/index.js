@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import counterReducer from './counterReducer'
 import shoppingCart from './shoppingCart'
-import authReducer from './auth'
+import authReducer from './authReducer'
 import resumeReducer from './resumeReducer'
 import notesReducer from './notesReducer'
 import notifyReducer from './notificationsReducer'
@@ -9,6 +9,9 @@ import similarReducer from './similarReducer'
 import citiesDictionaryReducer from './citiesDictionaryReducer'
 import vacanciesDictionaryReducer from './vacanciesDictionaryReducer'
 import branchesDictionaryReducer from './branchesDictionaryReducer'
+import inviteTemplatesReducer from './inviteTemplatesReducer'
+import selectedInviteTemplateReducer from './selectedInviteTemplateReducer'
+import userDataReducer from './userDataReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -20,7 +23,10 @@ const appReducer = combineReducers({
 	similar: similarReducer,
 	citiesDictionary: citiesDictionaryReducer,
 	branchesDictionary: branchesDictionaryReducer,
-	vacanciesDictionary: vacanciesDictionaryReducer
+	vacanciesDictionary: vacanciesDictionaryReducer,
+	inviteTemplates: inviteTemplatesReducer,
+	userData: userDataReducer,
+	selectedInviteTemplate: selectedInviteTemplateReducer
 })
 
 export default appReducer

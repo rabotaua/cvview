@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import ContactsPhones from './ContactsPhones'
 import ContactsEmail from './ContactsEmail'
 import ContactsSocials from './ContactsSocials'
+import OpenContacts from './OpenContacts'
 
 export default class ContactsAndSocialWrap extends Component {
 	render() {
-		const { contacts } = this.props
+		const { contacts, unUsedContacts } = this.props
 
-		if (!contacts || (contacts.hasOwnProperty('length') && !contacts.length))
-			return null
+		if (!contacts)
+			return <OpenContacts openContacts={this.props.openContactsAction} unUsedContacts={unUsedContacts}/>
+
 
 		return <div className="fd-f-between" style={{ padding: 30, margin: 40, border: '1px solid #ddd' }}>
 			<div>

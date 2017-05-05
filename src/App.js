@@ -14,8 +14,8 @@ import { signIn } from './actions/authActions'
 import SendVacancyContainer from './containers/SendVacancyContainer'
 import ContactsContainer from './containers/ContactsContainer'
 import Header from './containers/Header'
-import BranchesDemoContainer from './containers/BranchesDemoContainer'
-
+import { getUserDataAction } from './actions/userDataActions'
+import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 
 export default class App extends Component {
 	componentWillMount () {
@@ -24,6 +24,9 @@ export default class App extends Component {
 
 		if (localStorage.getItem('auth')) {
 			appStore.dispatch(signIn())
+
+			const rndUserID = ~~(Math.random() * 5)
+			appStore.dispatch(getUserDataAction(rndUserID))
 		}
 	}
 	render () {
@@ -55,6 +58,7 @@ export default class App extends Component {
 					<CounterSmart/>
 					<RestrictedContent/>
 				</fieldset>
+				<InviteJobsearcherContainer/>
 			</div>
 		</Provider>
 	}
