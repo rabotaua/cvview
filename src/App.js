@@ -8,6 +8,7 @@ import CvTextContainer from './containers/CvTextContainer'
 import NotesContainer from './containers/NotesContainer'
 import SendMessage from './containers/SendMessage'
 import NotificationsContainer from './containers/NotificationsContainer'
+import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 
 export default class App extends Component {
 	render () {
@@ -34,6 +35,7 @@ export default class App extends Component {
 					<CounterSmart/>
 					<RestrictedContent/>
 				</fieldset>
+				<InviteJobsearcherContainer/>
 			</div>
 		</Provider>
 	}
