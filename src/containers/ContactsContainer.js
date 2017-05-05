@@ -1,36 +1,17 @@
-import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ContactsPhones from '../components/Contacts/ContactsPhones'
-import ContactsEmail from '../components/Contacts/ContactsEmail'
-import ContactsSocials from '../components/Contacts/ContactsSocials'
+import authHoc from '../components/authHoc'
+import ContactsAndSocialWrap from '../components/Contacts/ContactsAndSocialWrap'
+import { bindActionCreators } from 'redux'
+import { openContacts } from '../actions/contactsActions'
 
-class ContactsContainer extends Component {
-	render() {
-		const { contacts } = this.props
-
-		if (!contacts || (contacts.hasOwnProperty('length') && !contacts.length))
-			return null
-
-		return <div className="f-paper fd-p20" style={{marginTop: '20px'}}>
-			<div className="fd-f-between">
-				<div>
-					<ContactsPhones
-						additionalPhones={contacts.additionalPhones}
-						phone={contacts.phone}
-					/>
-					<br/>
-					<ContactsEmail email={contacts.email}/>
-				</div>
-				<div>
-					<ContactsSocials socialLinks={contacts.socialNetworks}/>
-				</div>
-			</div>
-		</div>
-	}
-}
-
-const mapStateToProps = (state) => ({
-	contacts: state.resume.contact
+const mapStateToProps = ({ resume, userData }) => ({
+	contacts: resume.contact,
+	unUsedContacts: userData.unusedContacts
 })
 
-export default connect(mapStateToProps)(ContactsContainer)
+const mapDispatchToProps = dispatch => ({
+	openContactsAction: bindActionCreators(openContacts, dispatch)
+})
+
+const ReduxedContainer = connect(mapStateToProps, mapDispatchToProps)(ContactsAndSocialWrap)
+export default authHoc(ReduxedContainer)(null)

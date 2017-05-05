@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import './index.css'
 
-window.defaultResumeId = 3496188
+window.defaultResumeId = 10466814
 
 ReactDOM.render(
   <App />,
