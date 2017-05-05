@@ -10,7 +10,6 @@ const Logged = ({ signOutAction }) => {
 		<br/>
 		<button onClick={signOutAction}>ohh, I'm affraid, sign out please!</button>
 	</div>
-
 }
 
 const mapDispatchToProps = dispatch => ({
