@@ -5,6 +5,9 @@ import authReducer from './auth'
 import resumeReducer from './resumeReducer'
 import notesReducer from './notesReducer'
 import notifyReducer from './notificationsReducer'
+import similarReducer from './similarReducer'
+import citiesDictionaryReducer from './citiesDictionaryReducer'
+import vacanciesDictionaryReducer from './vacanciesDictionaryReducer'
 import inviteTemplatesReducer from './inviteTemplatesReducer'
 import selectedInviteTemplateReducer from './selectedInviteTemplateReducer'
 
@@ -14,6 +17,10 @@ const appReducer = combineReducers({
 	auth: authReducer,
 	resume: resumeReducer,
 	notes: notesReducer,
+	notifications: notifyReducer,
+	similar: similarReducer,
+	citiesDictionary: citiesDictionaryReducer,
+	vacanciesDictionary: vacanciesDictionaryReducer,
 	notifications: notifyReducer,
 	inviteTemplates: inviteTemplatesReducer,
 	selectedInviteTemplate: selectedInviteTemplateReducer

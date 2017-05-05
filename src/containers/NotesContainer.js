@@ -1,27 +1,12 @@
-import React, { Component } from 'react'
-import { getNotesList } from '../actions/notesActions'
+import { addNewNote } from '../actions/notesActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NotesList from '../components/NotesList'
+import NotesList from '../components/Notes/NotesList'
 
-class NotesContainer extends Component {
-	componentWillMount() {
-		this.props.getNotesListAction(3496188)
-	}
-
-	render() {
-		return <div>
-			<NotesList notes={this.props.notes}/>
-		</div>
-	}
-}
-
-const mapStateToProps = (state) => ({
-	notes: state.notes
-})
+const mapStateToProps = ({ notes, auth, resume }) => ({ notes, auth, resumeId: resume.id })
 
 const mapDispatchToProps = (dispatch) => ({
-	getNotesListAction: bindActionCreators(getNotesList, dispatch)
+	addNewNoteAction: bindActionCreators(addNewNote, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotesContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(NotesList)

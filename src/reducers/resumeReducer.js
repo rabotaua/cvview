@@ -1,9 +1,7 @@
-// jQuery(window).on('GET_RESUME_TEXT', reducer)
-
-const resumeReducer = (state = {}, event) => {
-	switch (event.type) {
+const resumeReducer = (state = {}, action) => {
+	switch (action.type) {
 		case 'GET_RESUME':
-			return event.resume
+			return action.resume
 		default:
 			return state
 	}

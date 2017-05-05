@@ -8,4 +8,5 @@ const appStore = createStore(
 	applyMiddleware(thunk)
 )
 
+window.store = appStore
 export default appStore
