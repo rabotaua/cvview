@@ -11,15 +11,6 @@ export const getTemplatesList = resumeId => dispatch => {
 	})
 }
 
-export const editInviteTemplate = (id, template) => dispatch => {
-	inviteApi.editInviteTemplate(id, template).then(template => {
-		dispatch({
-			type: 'ADD_INVITE_TEMPLATE',
-			template
-		})
-	})
-}
-
 export const selectInviteTemplate = template => dispatch => {
 	dispatch({
 		type: 'SELECT_INVITE_TEMPLATE',
@@ -31,3 +22,19 @@ export const selectInviteTemplateChangeText = text => ({
 	type: 'SELECT_INVITE_TEMPLATE_CHANGE_TEXT',
 	text
 })
+
+export const saveInviteTemplate = (id, template) => dispatch => {
+	return inviteApi.saveInviteTemplate(id, template).then(template => {
+		dispatch({
+			type: 'SAVE_INVITE_TEMPLATE',
+			template
+		})
+	})
+}
+
+export const checkInviteTemplateToSave = isChecked => dispatch => {
+	dispatch({
+		type: 'CHECK_INVITE_TEMPLATE',
+		isChecked
+	})
+}

@@ -10,6 +10,7 @@ import citiesDictionaryReducer from './citiesDictionaryReducer'
 import vacanciesDictionaryReducer from './vacanciesDictionaryReducer'
 import inviteTemplatesReducer from './inviteTemplatesReducer'
 import selectedInviteTemplateReducer from './selectedInviteTemplateReducer'
+import checkInviteTemplateReducer from './checkInviteTemplateReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -23,7 +24,8 @@ const appReducer = combineReducers({
 	vacanciesDictionary: vacanciesDictionaryReducer,
 	notifications: notifyReducer,
 	inviteTemplates: inviteTemplatesReducer,
-	selectedInviteTemplate: selectedInviteTemplateReducer
+	selectedInviteTemplate: selectedInviteTemplateReducer,
+	isInviteTemplateToSaveChecked: checkInviteTemplateReducer
 })
 
 export default appReducer

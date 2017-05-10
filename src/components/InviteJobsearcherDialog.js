@@ -8,19 +8,28 @@ export default class InviteJobsearcherDialog extends React.Component {
 	}
 
 	addInviteTemplate(e) {
-		let {id:resumeId} = this.props.resume
 		e.preventDefault()
+		let {id:resumeId} = this.props.resume
+		let selectedTemplate = this.props.selectedInviteTemplate
+		let {id} = selectedTemplate
 		let val = this.inviteTextInput.value
-		if (val) {
-			let templ = {
-				resumeId,
-				text: val,
-				createDate: Date.now()
-			}
+		let isInviteTemplateChecked = this.props.isInviteTemplateToSaveChecked
+		if (isInviteTemplateChecked && val) {
+			let template = Object.assign(selectedTemplate, {text: val})
+			this.props.saveInviteTemplate(id, template).then(() => {
+				this.props.selectInviteTemplate(template)
+			})
 		}
 	}
 
-	onTextChange = event => this.props.selectInviteTemplateChangeText(event.target.text)
+	checkInviteTemplate() {
+		let isChecked = !this.props.isInviteTemplateToSaveChecked
+		this.props.checkInviteTemplate(isChecked)
+	}
+
+	onTextChange = event => {
+		this.props.selectInviteTemplateChangeText(event.target.value)
+	}
 
 	render() {
 		let {name, middleName, surName} = this.props.resume.personal || {}
@@ -37,14 +46,20 @@ export default class InviteJobsearcherDialog extends React.Component {
 				selectInviteTemplate={this.props.selectInviteTemplate}
 				selectedInviteTemplate={this.props.selectedInviteTemplate}
 			/>
-			<form action="#" method="POST">
+			<form action="#" method="POST" onSubmit={this.addInviteTemplate.bind(this)}>
 				<textarea
 					value={selectedInviteTemplateText}
 					onChange={this.onTextChange}
 					ref={input => this.inviteTextInput = input}
 					name="Invite text" cols="70" rows="10"
-				></textarea>
-				<input type="submit" onSubmit={this.addInviteTemplate.bind(this)}/>
+				/>
+				<div>
+					<label>
+						<span>Сохранить шаблон</span>
+						<input type="checkbox" onChange={this.checkInviteTemplate.bind(this)}/>
+					</label>
+					<input type="submit"/>
+				</div>
 			</form>
 		</div>
 	}
