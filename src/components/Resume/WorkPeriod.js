@@ -10,7 +10,7 @@ const WorkPeriod = (props) => {
 	const end = moment(endWork).format(format)
 
 
-	return <div>
+	return <div style={{width: '150px'}}>
 		<div>{period}</div>
 		<div><b>{start}</b></div>
 		<div><b>{end}</b></div>

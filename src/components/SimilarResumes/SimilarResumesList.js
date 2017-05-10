@@ -3,6 +3,7 @@ import { SimilarResumesListItem } from './SimilarResumesListItem'
 
 export const SimiliarResumesList = ({similar = [], citiesDictionary, getResumeText}) => {
 	if (!similar.length) return <div>nothing here</div>
+
 	return <div className="f-paper fd-p20" style={{marginTop: '20px'}}>
 		<div className="fd-c-stretch fd-f-g20">
 			<div>
