@@ -1,4 +1,4 @@
-import {selectInviteTemplateChangeText} from "../actions/inviteActions";
+import {selectInviteTemplateChangeText} from "../../actions/inviteActions";
 import selectedInviteTemplateReducer from "./selectedInviteTemplateReducer";
 
 describe('selectedInviteTemplateReducer', () => {

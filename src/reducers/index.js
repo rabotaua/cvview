@@ -9,9 +9,11 @@ import similarReducer from './similarReducer'
 import citiesDictionaryReducer from './citiesDictionaryReducer'
 import vacanciesDictionaryReducer from './vacanciesDictionaryReducer'
 import branchesDictionaryReducer from './branchesDictionaryReducer'
-import inviteTemplatesReducer from './inviteTemplatesReducer'
-import selectedInviteTemplateReducer from './selectedInviteTemplateReducer'
+import inviteTemplatesReducer from './InviteReducers/inviteTemplatesReducer'
+import selectedInviteTemplateReducer from './InviteReducers/selectedInviteTemplateReducer'
+import checkInviteTemplateReducer from './checkInviteTemplateReducer'
 import userDataReducer from './userDataReducer'
+import inviteDialogReducer from './InviteReducers/inviteDialogReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -26,7 +28,9 @@ const appReducer = combineReducers({
 	vacanciesDictionary: vacanciesDictionaryReducer,
 	inviteTemplates: inviteTemplatesReducer,
 	userData: userDataReducer,
-	selectedInviteTemplate: selectedInviteTemplateReducer
+	selectedInviteTemplate: selectedInviteTemplateReducer,
+	isInviteTemplateToSaveChecked: checkInviteTemplateReducer,
+	isInviteDialogOpen: inviteDialogReducer
 })
 
 export default appReducer

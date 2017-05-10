@@ -3,6 +3,7 @@ const selectedInviteTemplateReducer = (state = {}, action) => {
 		case 'SELECT_INVITE_TEMPLATE':
 			return action.template
 		case 'SELECT_INVITE_TEMPLATE_CHANGE_TEXT':
+			console.log(action)
 			return {...state, text: action.text}
 		default:
 			return state

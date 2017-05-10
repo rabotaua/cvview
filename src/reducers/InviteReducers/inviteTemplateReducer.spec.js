@@ -1,5 +1,5 @@
 import inviteTemplatesReducer from "./inviteTemplatesReducer";
-import {getTemplatesListAction} from "../actions/inviteActions";
+import {getTemplatesListAction} from "../../actions/inviteActions";
 describe('inviteTemplateReducer', () => {
 	it('should do nothing to unknown actions', () => {
 		// Arrange

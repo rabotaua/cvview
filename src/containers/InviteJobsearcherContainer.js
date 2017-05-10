@@ -1,15 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import InviteJobsearcherDialog from '../components/InviteJobsearcherDialog'
+import InviteJobsearcherDialog from '../components/Invite/InviteJobsearcherDialog'
 import {
-	editInviteTemplate, getTemplatesList, selectInviteTemplate,
-	selectInviteTemplateChangeText
+	saveInviteTemplate, getTemplatesList, selectInviteTemplate,
+	selectInviteTemplateChangeText, checkInviteTemplateToSave,
+	openInviteDialog, closeInviteDialog
 } from '../actions/inviteActions'
 import {getResumeText} from '../actions/resumeActions'
 import VacancyCurrentButtonsContainer from "../components/VacancyCurrentButtonsContainer";
 
 class InviteJobsearcherContainer extends React.Component {
+	constructor() {
+		super()
+		this.saveInviteTemplate = this.saveInviteTemplate.bind(this)
+	}
+
 	componentWillMount() {
 		this.props.getTemplatesListAction(3496188);
 		this.props.selectInviteTemplateAction({
@@ -21,17 +27,32 @@ class InviteJobsearcherContainer extends React.Component {
 		})
 	}
 
+	saveInviteTemplate(id, template) {
+		console.log('Invitation has been sent !!!')
+		return this.props.saveInviteTemplateAction(id, template)
+	}
+
+	checkInviteTemplate(isChecked) {
+		this.props.checkInviteTemplateToSaveAction(isChecked)
+	}
+
 	render() {
 		return <div>
 			<InviteJobsearcherDialog
 				resume={this.props.resume}
 				templates={this.props.inviteTemplates}
-				editInviteTemplate={this.props.editInviteTemplateAction}
+				getTemplates={this.props.getTemplatesListAction}
+				saveInviteTemplate={this.saveInviteTemplate}
 				selectInviteTemplate={this.props.selectInviteTemplateAction}
 				selectedInviteTemplate={this.props.selectedInviteTemplate}
 				selectInviteTemplateChangeText={this.props.selectInviteTemplateChangeText}
+				isInviteTemplateToSaveChecked={this.props.isInviteTemplateToSaveChecked}
+				checkInviteTemplate={this.checkInviteTemplate.bind(this)}
+				openInviteDialog={this.props.openInviteDialogAction}
+				closeInviteDialog={this.props.closeInviteDialogAction}
+				isInviteDialogOpen={this.props.isInviteDialogOpen}
 				/>
-			<VacancyCurrentButtonsContainer/>
+			<VacancyCurrentButtonsContainer openInviteDialog={this.props.openInviteDialogAction}/>
 		</div>
 	}
 }
@@ -39,16 +60,20 @@ class InviteJobsearcherContainer extends React.Component {
 const mapStateToProps = (state) => ({
 	resume: state.resume,
 	inviteTemplates: state.inviteTemplates,
-	selectedInviteTemplate: state.selectedInviteTemplate
+	selectedInviteTemplate: state.selectedInviteTemplate,
+	isInviteTemplateToSaveChecked: state.isInviteTemplateToSaveChecked,
+	isInviteDialogOpen: state.isInviteDialogOpen
 })
 
 const mapDispatchToProps = (dispatch) => ({
 	getTemplatesListAction: bindActionCreators(getTemplatesList, dispatch),
-	editInviteTemplateAction: bindActionCreators(editInviteTemplate, dispatch),
+	saveInviteTemplateAction: bindActionCreators(saveInviteTemplate, dispatch),
 	selectInviteTemplateAction: bindActionCreators(selectInviteTemplate, dispatch),
 	getResumeText: bindActionCreators(getResumeText, dispatch),
-	selectInviteTemplateChangeText: bindActionCreators(selectInviteTemplateChangeText, dispatch)
-
+	selectInviteTemplateChangeText: bindActionCreators(selectInviteTemplateChangeText, dispatch),
+	checkInviteTemplateToSaveAction: bindActionCreators(checkInviteTemplateToSave, dispatch),
+	openInviteDialogAction: bindActionCreators(openInviteDialog, dispatch),
+	closeInviteDialogAction: bindActionCreators(closeInviteDialog, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InviteJobsearcherContainer)
