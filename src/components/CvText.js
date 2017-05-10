@@ -6,6 +6,7 @@ import EducationList from '../components/Resume/EducationList'
 import TrainingsList from '../components/Resume/TrainingsList'
 import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
+import ContactsContainer from '../containers/ContactsContainer'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -37,8 +38,8 @@ export class CvText extends React.Component {
 						<CVTextPersonalInfo personal={personal} searchState={searchState} experiences={experiences} position={position} cities={this.props.cities} />
 					</div>
 				</div>
-
 			</div>
+			<ContactsContainer/>
 			<div className="f-paper fd-p20">
 				<h2 style={{fontSize: '22px', color: '#777'}}>Ключевая информация</h2>
 				<div style={{fontSize: '14px'}} dangerouslySetInnerHTML={{__html: skill.text}} />
