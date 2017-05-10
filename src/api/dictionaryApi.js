@@ -9,3 +9,5 @@ export const getVacanciesDictionary = notebookId => fetch(`https://api.rabota.ua
 
 export const getBranchesDictionary = () => fetch(`https://api.rabota.ua/dictionary/branch`)
 	.then(res => res.json())
+
+
