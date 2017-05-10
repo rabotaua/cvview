@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import InviteJobsearcherDialog from '../components/InviteJobsearcherDialog'
+import InviteJobsearcherDialog from '../components/Invite/InviteJobsearcherDialog'
 import {
 	saveInviteTemplate, getTemplatesList, selectInviteTemplate,
-	selectInviteTemplateChangeText, checkInviteTemplateToSave
+	selectInviteTemplateChangeText, checkInviteTemplateToSave,
+	openInviteDialog, closeInviteDialog
 } from '../actions/inviteActions'
 import {getResumeText} from '../actions/resumeActions'
 import VacancyCurrentButtonsContainer from "../components/VacancyCurrentButtonsContainer";
@@ -47,8 +48,11 @@ class InviteJobsearcherContainer extends React.Component {
 				selectInviteTemplateChangeText={this.props.selectInviteTemplateChangeText}
 				isInviteTemplateToSaveChecked={this.props.isInviteTemplateToSaveChecked}
 				checkInviteTemplate={this.checkInviteTemplate.bind(this)}
+				openInviteDialog={this.props.openInviteDialogAction}
+				closeInviteDialog={this.props.closeInviteDialogAction}
+				isInviteDialogOpen={this.props.isInviteDialogOpen}
 				/>
-			<VacancyCurrentButtonsContainer/>
+			<VacancyCurrentButtonsContainer openInviteDialog={this.props.openInviteDialogAction}/>
 		</div>
 	}
 }
@@ -57,7 +61,8 @@ const mapStateToProps = (state) => ({
 	resume: state.resume,
 	inviteTemplates: state.inviteTemplates,
 	selectedInviteTemplate: state.selectedInviteTemplate,
-	isInviteTemplateToSaveChecked: state.isInviteTemplateToSaveChecked
+	isInviteTemplateToSaveChecked: state.isInviteTemplateToSaveChecked,
+	isInviteDialogOpen: state.isInviteDialogOpen
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -66,7 +71,9 @@ const mapDispatchToProps = (dispatch) => ({
 	selectInviteTemplateAction: bindActionCreators(selectInviteTemplate, dispatch),
 	getResumeText: bindActionCreators(getResumeText, dispatch),
 	selectInviteTemplateChangeText: bindActionCreators(selectInviteTemplateChangeText, dispatch),
-	checkInviteTemplateToSaveAction: bindActionCreators(checkInviteTemplateToSave, dispatch)
+	checkInviteTemplateToSaveAction: bindActionCreators(checkInviteTemplateToSave, dispatch),
+	openInviteDialogAction: bindActionCreators(openInviteDialog, dispatch),
+	closeInviteDialogAction: bindActionCreators(closeInviteDialog, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InviteJobsearcherContainer)

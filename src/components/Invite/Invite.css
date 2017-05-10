@@ -1,0 +1,9 @@
+.close-dialog {
+	position: absolute;
+	left: calc(100% + 20px);
+	top: 0;
+	font-size: 40px;
+	line-height: 1;
+	cursor: pointer;
+	color: steelblue;
+}
