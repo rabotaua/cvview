@@ -10,7 +10,6 @@ export default class InviteJobsearcherDialog extends React.Component {
 
 	addInviteTemplate(e) {
 		e.preventDefault()
-		let {id: resumeId} = this.props.resume
 		let selectedTemplate = this.props.selectedInviteTemplate
 		let {id} = selectedTemplate
 		let val = this.inviteTextInput.value
@@ -58,7 +57,7 @@ export default class InviteJobsearcherDialog extends React.Component {
 		}
 		return <div className="invite-dialog-close" style={styles}>
 			<span className='close-dialog' onClick={this.closeDialog.bind(this)}>&times;</span>
-			<h3 class="f-custom-heading fd-fat-daimyo">Пригласить кандидата на собеседование</h3>
+			<h3 className="f-custom-heading fd-fat-daimyo">Пригласить кандидата на собеседование</h3>
 			<h1 className="title">Отказать кандидату</h1>
 			<div>
 				<h4>Кандидат</h4>
