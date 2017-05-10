@@ -7,6 +7,7 @@ import EducationList from '../components/Resume/EducationList'
 import TrainingsList from '../components/Resume/TrainingsList'
 import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
+import ContactsContainer from '../containers/ContactsContainer'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -39,8 +40,8 @@ export class CvText extends React.Component {
 						{/*<CVTextPersonalInfo {...this.props.resume} />*/}
 					</div>
 				</div>
-
 			</div>
+			<ContactsContainer/>
 			<div className="f-paper fd-p20">
 
 				<Skills skill={skill} />

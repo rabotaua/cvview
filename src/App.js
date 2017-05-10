@@ -10,13 +10,30 @@ import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
 import { getBranchesDictionaryAction, getCitiesDictionaryAction } from './actions/dictionaryActions'
 import { signIn } from './actions/authActions'
-import ContactsContainer from './containers/ContactsContainer'
 import Header from './containers/Header'
 import { getUserDataAction } from './actions/userDataActions'
 import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 import CommunicationWrapper from './components/Communication/CommunicationWrapper'
+import GaEventsDemo from './containers/GaEventsDemo'
+
+const gaCode = `
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-98890574-1', 'auto');
+	ga('send', 'pageview');
+`
 
 export default class App extends Component {
+	componentDidMount() {
+		/* insert google analytics script */
+		const gaScript = document.createElement('script')
+		gaScript.text = gaCode
+		document.head.appendChild(gaScript)
+	}
+
 	componentWillMount () {
 		appStore.dispatch(getCitiesDictionaryAction())
 		appStore.dispatch(getBranchesDictionaryAction())
@@ -38,7 +55,6 @@ export default class App extends Component {
 					<div className="fd-f-left fd-f-g20">
 						<div className="fd-f2">
 							<div className="fd-c-stretch fd-f-g20">
-								<ContactsContainer/>
 								<CvTextContainer />
 							</div>
 						</div>
@@ -56,6 +72,8 @@ export default class App extends Component {
 						<hr />
 						<CounterSmart/>
 						<RestrictedContent/>
+						<br/>
+						<GaEventsDemo/>
 					</fieldset>
 					<InviteJobsearcherContainer/>
 				</div>
