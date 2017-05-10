@@ -39,14 +39,6 @@ export const checkInviteTemplateToSave = isChecked => dispatch => {
 	})
 }
 
-export const openInviteDialog = () => dispatch => {
-	dispatch({
-		type: 'OPEN_INVITE_DIALOG'
-	})
-}
+export const openInviteDialog = () => ({ type: 'OPEN_INVITE_DIALOG' })
 
-export const closeInviteDialog = () => dispatch => {
-	dispatch({
-		type: 'CLOSE_INVITE_DIALOG'
-	})
-}
+export const closeInviteDialog = () => ({ type: 'CLOSE_INVITE_DIALOG' })
