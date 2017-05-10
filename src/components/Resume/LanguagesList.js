@@ -5,7 +5,9 @@ const LanguagesList = (props) => {
 	const { languages } = props
 
 	return <div>
-		{languages.map(language => <LanguagesListItem key={language.id} language={language} />)}
+		<hr/>
+		<h2 className="fd-syoi f-text-gray">Языки</h2>
+		{languages.map(language => <LanguagesListItem key={language.languageId} language={language} />)}
 	</div>
 }
 

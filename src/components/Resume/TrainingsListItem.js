@@ -11,7 +11,7 @@ const TrainingsListItem = (props) => {
 			</div>
 			<div>
 				<p>{training.name}</p>
-				<p><div dangerouslySetInnerHTML={{__html: training.description}}/></p>
+				<div dangerouslySetInnerHTML={{__html: training.description}}/>
 				<p>{training.location}</p>
 			</div>
 		</div>

@@ -5,7 +5,7 @@ const AdditionalsListItem = (props) => {
 
 	return <div style={{fontSize: '14px'}}>
 		<p><strong>{additional.title}</strong></p>
-		<p><div dangerouslySetInnerHTML={{__html: additional.description}}/></p>
+		<div dangerouslySetInnerHTML={{__html: additional.description}}/>
 	</div>
 }
 
