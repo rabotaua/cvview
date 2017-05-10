@@ -4,7 +4,7 @@ export default class TemplatesList extends React.Component {
 	selectTemplate(e) {
 		const id = e.target.value
 		const targetTemplate = this.props.templates.filter(template => {
-			return template.id == id
+			return template.id.toString() === id.toString()
 		}).shift()
 		this.props.selectInviteTemplate(targetTemplate)
 	}

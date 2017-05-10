@@ -1,4 +1,4 @@
-import { getCitiesDictionary, getVacanciesDictionary } from '../api/dictionaryApi'
+import { getCitiesDictionary, getVacanciesDictionary, getBranchesDictionary } from '../api/dictionaryApi'
 
 const getCitiesDictionaryRequest = () => ({
 	type: 'GET_CITIES_DICTIONARY_REQUEST'
@@ -28,3 +28,12 @@ export const getVacanciesDictionaryAction = notebookId => dispatch => {
 			vacancies
 		}))
 }
+
+export const getBranchesDictionaryAction = () => dispatch => {
+	getBranchesDictionary()
+		.then(branches => dispatch({
+			type: 'GET_BRANCHES_DICTIONARY',
+			branches
+		}))
+}
+

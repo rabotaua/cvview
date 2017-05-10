@@ -40,6 +40,7 @@ class InviteJobsearcherContainer extends React.Component {
 			<InviteJobsearcherDialog
 				resume={this.props.resume}
 				templates={this.props.inviteTemplates}
+				getTemplates={this.props.getTemplatesListAction}
 				saveInviteTemplate={this.saveInviteTemplate}
 				selectInviteTemplate={this.props.selectInviteTemplateAction}
 				selectedInviteTemplate={this.props.selectedInviteTemplate}

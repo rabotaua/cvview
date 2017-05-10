@@ -1,5 +1,5 @@
 import React from 'react'
-import InviteTemplatesList from "./InviteTemplatesList";
+import InviteTemplatesList from './InviteTemplatesList'
 
 export default class InviteJobsearcherDialog extends React.Component {
 	constructor() {
@@ -17,7 +17,7 @@ export default class InviteJobsearcherDialog extends React.Component {
 		if (isInviteTemplateChecked && val) {
 			let template = Object.assign(selectedTemplate, {text: val})
 			this.props.saveInviteTemplate(id, template).then(() => {
-				this.props.selectInviteTemplate(template)
+				this.props.getTemplates(3496188)
 			})
 		}
 	}

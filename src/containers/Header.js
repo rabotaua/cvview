@@ -1,11 +1,12 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { signIn, signOut } from '../actions/authActions'
 import { bindActionCreators } from 'redux'
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 
 
-const mapStateToProps = ({ auth }) => ({ auth })
+const mapStateToProps = ({ auth, userData }) => {
+	return ({ auth, userName: userData.name })
+}
 
 const mapDispatchToProps = (dispatch) => ({
 	signInAction: bindActionCreators(signIn, dispatch),

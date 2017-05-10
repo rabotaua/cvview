@@ -11,7 +11,7 @@ export default class Header extends Component {
 			width: '100%',
 			padding: '15px 50px',
 			background: '#fff',
-			boxShadow: '0 1px 2px 0 rgba(0,0,0,.3)'
+			boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.3)'
 		}
 
 		const logoStyle = {
@@ -30,6 +30,7 @@ export default class Header extends Component {
 				<HeaderRight
 					signOut={this.props.signOutAction}
 					signIn={this.props.signInAction}
+					userName={this.props.userName}
 				/>
 			</div>
 		</div>
