@@ -1,4 +1,4 @@
-const selectedInviteTemplateReducer = (state = {}, action) => {
+const selectedRefuseTemplateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'SELECT_REFUSE_TEMPLATE':
 			return action.template
@@ -10,4 +10,4 @@ const selectedInviteTemplateReducer = (state = {}, action) => {
 	}
 }
 
-export default selectedInviteTemplateReducer
+export default selectedRefuseTemplateReducer

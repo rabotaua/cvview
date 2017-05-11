@@ -7,7 +7,14 @@ import RefuseJobsearcherDialog from '../components/Refuse/RefuseJobsearcherDialo
 
 class RefuseJobsearcherContainer extends React.Component {
 	componentWillMount() {
-		this.props.getTemplatesListAction(3496188);
+		this.props.getTemplatesListAction(3496188)
+		this.props.selectRefuseTemplateAction({
+			id: 2,
+			resumeId: 3496188,
+			text: "Привіт, Андрій Геннадійович Сергієнко!Дякуємо за відгук на вакансію Менеджер з продажу. На жаль, на даний момент ми не готові зробити вам пропозицію. Дякуємо за інтерес до нашої компанії.",
+			createDate: "2017-05-03T02:03:48.51",
+			lng: "ua"
+		})
 	}
 
 	render() {
@@ -26,6 +33,7 @@ class RefuseJobsearcherContainer extends React.Component {
 const mapStateToProps = state => ({
 	resume: state.resume,
 	refuseTemplates: state.refuseTemplates,
+	selectedRefuseTemplate: state.selectedRefuseTemplate,
 })
 
 const mapDispatchToProps = dispatch => ({
