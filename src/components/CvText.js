@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import ExperienceList from '../components/Resume/ExperienceList'
 import CVTextPhoto from '../components/Resume/CVTextPhoto'
 import CVTextPersonalInfo from '../components/Resume/CVTextPersonalInfo'
@@ -7,8 +8,8 @@ import EducationList from '../components/Resume/EducationList'
 import TrainingsList from '../components/Resume/TrainingsList'
 import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
+import ResumePaginationContainer from '../containers/ResumePaginationContainer'
 import ContactsContainer from '../containers/ContactsContainer'
-import moment from 'moment'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -18,7 +19,7 @@ export class CvText extends React.Component {
 	render () {
 		if (!this.props.isResumeLoaded) return null
 
-		const {experiences, skill, personal, photo, position, educations, trainings, additionals, languages, searchState, updateDate} = this.props.resume
+		const {experiences, skill, photo, educations, trainings, additionals, languages, updateDate} = this.props.resume
 
 
 		// same as
@@ -31,6 +32,9 @@ export class CvText extends React.Component {
 
 
 		return <div>
+			<div className="f-paper fd-p20">
+				<ResumePaginationContainer />
+			</div>
 			<div className="f-paper fd-p20" style={{ marginBottom: 10}}>
 				<div>обновлено {moment(updateDate).format('DD MMMM YYYY')}</div>
 				<br/>

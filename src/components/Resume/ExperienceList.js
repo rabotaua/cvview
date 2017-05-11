@@ -5,7 +5,7 @@ const ExperienceList = (props) => {
 	const { experiences, branches } = props
 	let title
 
-	if(experiences.length != 0) {
+	if(experiences.length !== 0) {
 		title = <h2 className="fd-syoi f-text-gray">Опыт работы</h2>
 	}
 
