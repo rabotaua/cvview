@@ -38,7 +38,7 @@ class InviteJobsearcherContainer extends React.Component {
 	}
 
 	render() {
-		return <div>
+		return <div style={{marginRight: '20px'}}>
 			<InviteJobsearcherDialog
 				resume={this.props.resume}
 				templates={this.props.inviteTemplates}
