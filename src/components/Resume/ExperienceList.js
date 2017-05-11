@@ -9,7 +9,7 @@ const ExperienceList = (props) => {
 		title = <h2 className="fd-syoi f-text-gray">Опыт работы</h2>
 	}
 
-	return <div>
+	return <div id="cv-experience">
 		{title}
 		{experiences.map(experience => <ExperienceListItem key={experience.id} experience={experience} branches={branches} />)}
 	</div>

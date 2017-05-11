@@ -14,6 +14,7 @@ import Header from './containers/Header'
 import { getUserDataAction } from './actions/userDataActions'
 import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 import RefuseJobsearcherContainer from './containers/RefuseJobsearcherContainer'
+import NextResumeContainer from './containers/NextResumeContainer'
 import CommunicationWrapper from './components/Communication/CommunicationWrapper'
 import GaEventsDemo from './containers/GaEventsDemo'
 
@@ -58,6 +59,7 @@ export default class App extends Component {
 							<div className="fd-c-stretch fd-f-g20">
 								<CvTextContainer />
 							</div>
+							<NextResumeContainer />
 						</div>
 						<div className="fd-f1">
 							<div className="fd-c-stretch fd-f-g20">

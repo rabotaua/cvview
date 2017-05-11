@@ -1,0 +1,7 @@
+.cv-text-links-list li {
+	display: inline-block;
+}
+
+.cv-text-links-list li a {
+	margin-right: 30px;
+}

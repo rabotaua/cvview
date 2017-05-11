@@ -11,8 +11,6 @@ export const ResumePagination = ({resume, getResumeText}) => {
 		scrollTo(document.body, 0, 300)
 	}
 
-	console.log(resume)
-
 	return <div className="fd-f-right-middle fd-f-g20">
 		<span style={{cursor: 'pointer', color: '#3366cc'}} onClick={() => getResume(prevID)}>
 			<i className="fi-arrows-left"></i>

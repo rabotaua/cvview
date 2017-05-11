@@ -10,6 +10,8 @@ import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
 import ResumePaginationContainer from '../containers/ResumePaginationContainer'
 import ContactsContainer from '../containers/ContactsContainer'
+import './CVText.css'
+import scrollTo from '../util/smoothScroll'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -21,15 +23,17 @@ export class CvText extends React.Component {
 
 		const {experiences, skill, photo, educations, trainings, additionals, languages, updateDate} = this.props.resume
 
+		const goToBlock = (elem) =>	{
+			console.log(elem)
+			scrollTo(elem, 0, 300)
+		}
+
+		const experienceBlock = document.getElementById('cv-experience')
 
 		// same as
 		// const personal = this.props.resume.personal
 		// const photo = this.props.resume.photo
 		// const experiences = this.props.resume.experiences
-
-
-		// ["additionals","contact","educations","experiences","languages","personal","photo","position","skill","state","trainings","uiLanguage","searchState","updateDate","rtfLink","viewLink","resumeCount","id"]
-
 
 		return <div>
 			<div className="f-paper fd-p20">
@@ -49,17 +53,33 @@ export class CvText extends React.Component {
 			</div>
 			<ContactsContainer/>
 			<div className="f-paper fd-p20">
-
+				<ul className="cv-text-links-list f-reset-list fd-craftsmen" style={{marginBottom: '30px'}}>
+					<li>
+						{(experiences.length
+							? <a href="" className="f-pseudo-link" onClick={() => goToBlock(experienceBlock)}>Опыт работы</a>
+							: <div></div>)}
+					</li>
+					<li>
+						{(educations.length
+							? <a href="" className="f-pseudo-link">Образование</a>
+							: <div></div>)}
+					</li>
+					<li>
+						{(trainings.length
+							? <a href="" className="f-pseudo-link">Сертификаты</a>
+							: <div></div>)}
+					</li>
+					<li>
+						{(languages.length
+							? <a href="" className="f-pseudo-link">Языки</a>
+							: <div></div>)}
+					</li>
+				</ul>
 				<Skills skill={skill} />
-
 				<ExperienceList experiences={experiences} branches={this.props.branches} />
-
 				<EducationList educations={educations} />
-
 				<TrainingsList trainings={trainings} />
-
 				<AdditionalsList additionals={additionals} />
-
 				<LanguagesList languages={languages} />
 			</div>
 
