@@ -17,3 +17,14 @@ export const selectRefuseTemplate = template => dispatch => {
 		template
 	})
 }
+
+export const checkRefuseTemplateToSave = isChecked => dispatch => {
+	dispatch({
+		type: 'CHECK_REFUSE_TEMPLATE',
+		isChecked
+	})
+}
+
+export const openRefuseDialog = () => ({ type: 'OPEN_REFUSE_DIALOG' })
+
+export const closeRefuseDialog = () => ({ type: 'CLOSE_REFUSE_DIALOG' })

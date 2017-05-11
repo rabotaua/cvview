@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {getTemplatesList, selectRefuseTemplate} from '../actions/refuseActions'
+import {
+	getTemplatesList, selectRefuseTemplate, closeRefuseDialog,
+	openRefuseDialog, checkRefuseTemplateToSave
+} from '../actions/refuseActions'
 import RefuseJobsearcherDialog from '../components/Refuse/RefuseJobsearcherDialog'
 
 
@@ -17,13 +20,23 @@ class RefuseJobsearcherContainer extends React.Component {
 		})
 	}
 
+	checkRefuseTemplate(isChecked) {
+		this.props.checkRefuseTemplateToSaveAction(isChecked)
+	}
+
 	render() {
 		return <div>
 			<h1>Refuse container</h1>
 			<RefuseJobsearcherDialog
+				resume={this.props.resume}
 				getTemplates={this.props.getTemplatesListAction}
 				templates={this.props.refuseTemplates}
 				selectRefuseTemplate={this.props.selectRefuseTemplateAction}
+				selectedRefuseTemplate={this.props.selectedRefuseTemplate}
+				closeRefuseDialog={this.props.closeRefuseDialogAction}
+				openRefuseDialog={this.props.openRefuseDialogAction}
+				isRefuseTemplateToSaveChecked={this.props.isRefuseTemplateToSaveChecked}
+				checkRefuseTemplate={this.checkRefuseTemplate.bind(this)}
 			/>
 		</div>
 	}
@@ -34,11 +47,15 @@ const mapStateToProps = state => ({
 	resume: state.resume,
 	refuseTemplates: state.refuseTemplates,
 	selectedRefuseTemplate: state.selectedRefuseTemplate,
+	isRefuseTemplateToSaveChecked: state.isRefuseTemplateToSaveChecked
 })
 
 const mapDispatchToProps = dispatch => ({
 	getTemplatesListAction: bindActionCreators(getTemplatesList, dispatch),
-	selectRefuseTemplateAction: bindActionCreators(selectRefuseTemplate, dispatch)
+	selectRefuseTemplateAction: bindActionCreators(selectRefuseTemplate, dispatch),
+	closeRefuseDialogAction: bindActionCreators(closeRefuseDialog, dispatch),
+	openRefuseDialogAction: bindActionCreators(openRefuseDialog, dispatch),
+	checkRefuseTemplateToSaveAction: bindActionCreators(checkRefuseTemplateToSave, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RefuseJobsearcherContainer)

@@ -16,6 +16,7 @@ import userDataReducer from './userDataReducer'
 import inviteDialogReducer from './InviteReducers/inviteDialogReducer'
 import refuseTemplateReducer from './RefuseReducers/refuseTemplateReducer'
 import selectedRefuseTemplateReducer from './RefuseReducers/selectedRefuseTemplateReducer'
+import refuseDialogReducer from './RefuseReducers/refuseDialogReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -34,7 +35,8 @@ const appReducer = combineReducers({
 	isInviteTemplateToSaveChecked: checkInviteTemplateReducer,
 	isInviteDialogOpen: inviteDialogReducer,
 	refuseTemplates: refuseTemplateReducer,
-	selectedRefuseTemplate: selectedRefuseTemplateReducer
+	selectedRefuseTemplate: selectedRefuseTemplateReducer,
+	isRefuseDialogOpen: refuseDialogReducer
 })
 
 export default appReducer
