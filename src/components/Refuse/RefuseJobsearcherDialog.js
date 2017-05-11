@@ -16,6 +16,10 @@ export default class RefuseJobsearcherDialog extends React.Component {
 		}
 	}
 
+	onTextChange = event => {
+		this.props.selectRefuseTemplateChangeText(event.target.value)
+	}
+
 	checkRefuseTemplate() {
 		let isChecked = !this.props.isRefuseTemplateToSaveChecked
 		this.props.checkRefuseTemplate(isChecked)

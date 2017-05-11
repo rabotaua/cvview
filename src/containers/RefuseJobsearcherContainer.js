@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {
 	getTemplatesList, selectRefuseTemplate, closeRefuseDialog,
-	openRefuseDialog, checkRefuseTemplateToSave
+	openRefuseDialog, checkRefuseTemplateToSave, selectRefuseTemplateChangeText,
+	saveRefuseTemplate
 } from '../actions/refuseActions'
 import RefuseJobsearcherDialog from '../components/Refuse/RefuseJobsearcherDialog'
 
@@ -20,6 +21,11 @@ class RefuseJobsearcherContainer extends React.Component {
 		})
 	}
 
+	saveRefuseTemplate(id, template) {
+		console.log('Refuse has been sent !!!')
+		return this.props.saveRefuseTemplateAction(id, template)
+	}
+
 	checkRefuseTemplate(isChecked) {
 		this.props.checkRefuseTemplateToSaveAction(isChecked)
 	}
@@ -31,7 +37,9 @@ class RefuseJobsearcherContainer extends React.Component {
 				resume={this.props.resume}
 				getTemplates={this.props.getTemplatesListAction}
 				templates={this.props.refuseTemplates}
+				saveRefuseTemplate={this.saveRefuseTemplate.bind(this)}
 				selectRefuseTemplate={this.props.selectRefuseTemplateAction}
+				selectRefuseTemplateChangeText={this.props.selectRefuseTemplateChangeText}
 				selectedRefuseTemplate={this.props.selectedRefuseTemplate}
 				closeRefuseDialog={this.props.closeRefuseDialogAction}
 				openRefuseDialog={this.props.openRefuseDialogAction}
@@ -52,10 +60,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	getTemplatesListAction: bindActionCreators(getTemplatesList, dispatch),
+	saveRefuseTemplateAction: bindActionCreators(saveRefuseTemplate, dispatch),
 	selectRefuseTemplateAction: bindActionCreators(selectRefuseTemplate, dispatch),
 	closeRefuseDialogAction: bindActionCreators(closeRefuseDialog, dispatch),
 	openRefuseDialogAction: bindActionCreators(openRefuseDialog, dispatch),
-	checkRefuseTemplateToSaveAction: bindActionCreators(checkRefuseTemplateToSave, dispatch)
+	checkRefuseTemplateToSaveAction: bindActionCreators(checkRefuseTemplateToSave, dispatch),
+	selectRefuseTemplateChangeText: bindActionCreators(selectRefuseTemplateChangeText, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RefuseJobsearcherContainer)
