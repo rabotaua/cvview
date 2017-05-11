@@ -11,7 +11,8 @@ export default class Header extends Component {
 			width: '100%',
 			padding: '15px 50px',
 			background: '#fff',
-			boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.3)'
+			boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.3)',
+			zIndex: 100
 		}
 
 		const logoStyle = {
