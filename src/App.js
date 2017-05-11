@@ -13,6 +13,7 @@ import { signIn } from './actions/authActions'
 import Header from './containers/Header'
 import { getUserDataAction } from './actions/userDataActions'
 import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
+import RefuseJobsearcherContainer from './containers/RefuseJobsearcherContainer'
 import CommunicationWrapper from './components/Communication/CommunicationWrapper'
 import GaEventsDemo from './containers/GaEventsDemo'
 
@@ -76,6 +77,7 @@ export default class App extends Component {
 						<GaEventsDemo/>
 					</fieldset>
 					<InviteJobsearcherContainer/>
+					<RefuseJobsearcherContainer/>
 				</div>
 			</div>
 		</Provider>
