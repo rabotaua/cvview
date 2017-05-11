@@ -71,7 +71,8 @@ export default class RefuseJobsearcherDialog extends React.Component {
 						<span>Сохранить шаблон</span>
 						<input type="checkbox" onChange={this.checkRefuseTemplate.bind(this)}/>
 					</label>
-					<input type="submit"/>
+					<input type="submit" value="ОТКАЗАТЬ" style={{marginRight: '10px'}}/>
+					<button onClick={this.closeDialog.bind(this)}>ОТМЕНИТЬ</button>
 				</div>
 			</form>
 		</div>

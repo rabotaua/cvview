@@ -15,10 +15,18 @@ export default class InviteJobsearcherDialog extends React.Component {
 		let val = this.inviteTextInput.value
 		let isInviteTemplateChecked = this.props.isInviteTemplateToSaveChecked
 		if (isInviteTemplateChecked && val) {
-			let template = Object.assign(selectedTemplate, {text: val})
+			let template
+			if (id) {
+				template = Object.assign({}, selectedTemplate, {text: val})
+			} else {
+				id = this.props.templates[0].id
+				template = Object.assign({}, this.props.templates[0], {text: val})
+			}
 			this.props.saveInviteTemplate(id, template).then(() => {
-				this.props.getTemplates(3496188).
+				this.props.getTemplates(3496188)
+				this.props.selectInviteTemplate({})
 				this.closeDialog()
+				this.inviteTextInput.value = ''
 			})
 		}
 	}
@@ -33,11 +41,20 @@ export default class InviteJobsearcherDialog extends React.Component {
 	}
 
 	closeDialog() {
+		this.props.selectInviteTemplate({})
 		this.props.closeInviteDialog()
 	}
 
-	openDialog() {
-		this.props.openInviteDialog()
+	toggleInviteTemplatesList() {
+		let visible = this.props.isInviteTemplatesListVisible
+		if (visible) {
+			this.props.hideInviteTemplatesList()
+			this.props.selectInviteTemplate({})
+			this.inviteTextInput.value = ''
+		} else {
+			this.props.showInviteTemplatesList()
+			this.props.selectInviteTemplate(this.props.templates[0])
+		}
 	}
 
 	render() {
@@ -64,13 +81,16 @@ export default class InviteJobsearcherDialog extends React.Component {
 				<h4>Кандидат</h4>
 				<p>{`${name} ${middleName} ${surName}`}</p>
 			</div>
-			<InviteTemplatesList
-				templates={this.props.templates}
-				inviteTextInput={this.inviteTextInput}
-				selectInviteTemplate={this.props.selectInviteTemplate}
-				selectedInviteTemplate={this.props.selectedInviteTemplate}
-			/>
-			<form action="#" method="POST" onSubmit={this.addInviteTemplate.bind(this)}>
+				<button onClick={this.toggleInviteTemplatesList.bind(this)}>Зaгрузить из шаблона</button>
+			<div style={{display: this.props.isInviteTemplatesListVisible ? 'block' : 'none'}}>
+				<InviteTemplatesList
+					templates={this.props.templates}
+					inviteTextInput={this.inviteTextInput}
+					selectInviteTemplate={this.props.selectInviteTemplate}
+					selectedInviteTemplate={this.props.selectedInviteTemplate}
+				/>
+			</div>
+				<form action="#" method="POST" onSubmit={this.addInviteTemplate.bind(this)}>
 				<textarea
 					value={selectedInviteTemplateText}
 					onChange={this.onTextChange}
@@ -82,7 +102,8 @@ export default class InviteJobsearcherDialog extends React.Component {
 						<span>Сохранить шаблон</span>
 						<input type="checkbox" onChange={this.checkInviteTemplate.bind(this)}/>
 					</label>
-					<input type="submit"/>
+					<input type="submit" value="ПРИГЛАСИТЬ" style={{marginRight: '10px'}}/>
+					<button onClick={this.closeDialog.bind(this)}>ОТМЕНИТЬ</button>
 				</div>
 			</form>
 		</div>

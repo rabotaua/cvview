@@ -5,10 +5,11 @@ import InviteJobsearcherDialog from '../components/Invite/InviteJobsearcherDialo
 import {
 	saveInviteTemplate, getTemplatesList, selectInviteTemplate,
 	selectInviteTemplateChangeText, checkInviteTemplateToSave,
-	openInviteDialog, closeInviteDialog
+	openInviteDialog, closeInviteDialog, showInviteTemplatesList,
+	hideInviteTemplatesList
 } from '../actions/inviteActions'
 import {getResumeText} from '../actions/resumeActions'
-import VacancyCurrentInviteButtonContainer from "../components/Invite/VacancyCurrentInviteButtonContainer";
+import VacancyCurrentInviteButtonContainer from "../components/Invite/VacancyCurrentInviteButtonContainer"
 
 class InviteJobsearcherContainer extends React.Component {
 	constructor() {
@@ -18,13 +19,13 @@ class InviteJobsearcherContainer extends React.Component {
 
 	componentWillMount() {
 		this.props.getTemplatesListAction(3496188);
-		this.props.selectInviteTemplateAction({
-			id: 2,
-			resumeId: 3496188,
-			text: "Привіт, Андрій Геннадійович Сергієнко!Дякуємо за відгук на вакансію Менеджер з продажу. На жаль, на даний момент ми не готові зробити вам пропозицію. Дякуємо за інтерес до нашої компанії.",
-			createDate: "2017-05-03T02:03:48.51",
-			lng: "ua"
-		})
+		// this.props.selectInviteTemplateAction({
+		// 	id: 2,
+		// 	resumeId: 3496188,
+		// 	text: "Привіт, Андрій Геннадійович Сергієнко!Дякуємо за відгук на вакансію Менеджер з продажу. На жаль, на даний момент ми не готові зробити вам пропозицію. Дякуємо за інтерес до нашої компанії.",
+		// 	createDate: "2017-05-03T02:03:48.51",
+		// 	lng: "ua"
+		// })
 	}
 
 	saveInviteTemplate(id, template) {
@@ -51,6 +52,9 @@ class InviteJobsearcherContainer extends React.Component {
 				openInviteDialog={this.props.openInviteDialogAction}
 				closeInviteDialog={this.props.closeInviteDialogAction}
 				isInviteDialogOpen={this.props.isInviteDialogOpen}
+				showInviteTemplatesList={this.props.showInviteTemplatesListAction}
+				hideInviteTemplatesList={this.props.hideInviteTemplatesListAction}
+				isInviteTemplatesListVisible={this.props.isInviteTemplatesListVisible}
 				/>
 			<VacancyCurrentInviteButtonContainer openInviteDialog={this.props.openInviteDialogAction}/>
 		</div>
@@ -62,7 +66,8 @@ const mapStateToProps = (state) => ({
 	inviteTemplates: state.inviteTemplates,
 	selectedInviteTemplate: state.selectedInviteTemplate,
 	isInviteTemplateToSaveChecked: state.isInviteTemplateToSaveChecked,
-	isInviteDialogOpen: state.isInviteDialogOpen
+	isInviteDialogOpen: state.isInviteDialogOpen,
+	isInviteTemplatesListVisible: state.isInviteTemplatesListVisible
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -73,7 +78,9 @@ const mapDispatchToProps = (dispatch) => ({
 	selectInviteTemplateChangeText: bindActionCreators(selectInviteTemplateChangeText, dispatch),
 	checkInviteTemplateToSaveAction: bindActionCreators(checkInviteTemplateToSave, dispatch),
 	openInviteDialogAction: bindActionCreators(openInviteDialog, dispatch),
-	closeInviteDialogAction: bindActionCreators(closeInviteDialog, dispatch)
+	closeInviteDialogAction: bindActionCreators(closeInviteDialog, dispatch),
+	showInviteTemplatesListAction: bindActionCreators(showInviteTemplatesList, dispatch),
+	hideInviteTemplatesListAction: bindActionCreators(hideInviteTemplatesList, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InviteJobsearcherContainer)
