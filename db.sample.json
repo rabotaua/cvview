@@ -663,5 +663,28 @@
       "createDate": "2017-05-03T02:03:48.51",
       "lng": "en"
     }
+  ],
+  "refuseTemplates": [
+    {
+      "id": 1,
+      "resumeId": 3496188,
+      "text": "Здравствуйте, Андрей Геннадиевич Сергеенко!Благодарим за отклик на вакансию “Менеджер по продажам”. К сожалению, на данный момент мы не готовы сделать вам предложение. Спасибо за интерес к нашей компании.",
+      "createDate": "2017-05-03T02:03:48.51",
+      "lng": "ru"
+    },
+    {
+      "id": 2,
+      "resumeId": 3496188,
+      "text": "Привіт, Андрій Геннадійович Сергієнко!Дякуємо за відгук на вакансію Менеджер з продажу. На жаль, на даний момент ми не готові зробити вам пропозицію. Дякуємо за інтерес до нашої компанії.",
+      "createDate": "2017-05-03T02:03:48.51",
+      "lng": "ua"
+    },
+    {
+      "id": 3,
+      "resumeId": 3496188,
+      "text": "Hello, Andrey Gennadievich Sergeenko!Thank you for your response to the position of Sales Manager. Unfortunately, at the moment we are not ready to make you an offer. Thank you for your interest in our company.",
+      "createDate": "2017-05-03T02:03:48.51",
+      "lng": "en"
+    }
   ]
 }
