@@ -42,3 +42,7 @@ export const checkRefuseTemplateToSave = isChecked => dispatch => {
 export const openRefuseDialog = () => ({ type: 'OPEN_REFUSE_DIALOG' })
 
 export const closeRefuseDialog = () => ({ type: 'CLOSE_REFUSE_DIALOG' })
+
+export const showRefuseTemplatesList = () => ({type: 'SHOW_REFUSE_TEMPLATES_LIST'})
+
+export const hideRefuseTemplatesList = () => ({type: 'HIDE_REFUSE_TEMPLATES_LIST'})

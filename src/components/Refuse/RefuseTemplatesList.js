@@ -16,7 +16,6 @@ export default class RefuseTemplatesList extends React.Component {
 				value={template.id}>{template.lng}</option>
 		})
 		return <ul>
-			<h3>Templates list</h3>
 			<select name="invite_templates" onChange={this.selectTemplate.bind(this)}>
 				{templates}
 			</select>
