@@ -8,7 +8,7 @@ const CVTextPersonalInfo = (props) => {
 	const {name, surName, cityId, dateBirth} = personal
 	const {salary} = position
 
-	const searchStatus = searchState ? 'Активно ищу работу' : 'Не активно ищу работу'
+	const searchStatus = searchState ? 'Активно ищу работу' : 'Работаю но открыт для предложений'
 
 	const age = moment().format('YYYY') - moment(dateBirth).format('YYYY')
 	const city = cities[cityId] ? cities[cityId].ru : ''

@@ -8,6 +8,7 @@ import TrainingsList from '../components/Resume/TrainingsList'
 import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
 import ContactsContainer from '../containers/ContactsContainer'
+import moment from 'moment'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -17,7 +18,7 @@ export class CvText extends React.Component {
 	render () {
 		if (!this.props.isResumeLoaded) return null
 
-		const {experiences, skill, personal, photo, position, educations, trainings, additionals, languages, searchState} = this.props.resume
+		const {experiences, skill, personal, photo, position, educations, trainings, additionals, languages, searchState, updateDate} = this.props.resume
 
 
 		// same as
@@ -31,13 +32,14 @@ export class CvText extends React.Component {
 
 		return <div>
 			<div className="f-paper fd-p20" style={{ marginBottom: 10}}>
+				<div>обновлено {moment(updateDate).format('DD MMMM YYYY')}</div>
+				<br/>
 				<div className="fd-f-left">
 					<div>
 						<CVTextPhoto photo={photo}/>
 					</div>
 					<div>
-						<CVTextPersonalInfo personal={personal} searchState={searchState} experiences={experiences} position={position} cities={this.props.cities} />
-						{/*<CVTextPersonalInfo {...this.props.resume} />*/}
+						<CVTextPersonalInfo {...this.props.resume} cities={this.props.cities}  />
 					</div>
 				</div>
 			</div>

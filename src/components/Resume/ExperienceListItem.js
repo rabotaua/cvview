@@ -7,7 +7,7 @@ const ExperienceListItem = (props) => {
 	const { experience, branches } = props
 	const branchName = (branches.filter(branch => branch.id === experience.branchId)[0] || {ru: ''}).ru
 
-	return <div style={{fontSize: '14px'}}>
+	return <div className="fd-craftsmen">
 		<div className="fd-f-left">
 			<div>
 				<h3><strong>Work Period:</strong></h3>
