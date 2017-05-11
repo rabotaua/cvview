@@ -5,7 +5,7 @@ const LanguagesList = (props) => {
 	const { languages } = props
 	let title
 
-	if(languages.length != 0) {
+	if(languages.length !== 0) {
 		title = <h2 className="fd-syoi f-text-gray">Языки</h2>
 	}
 

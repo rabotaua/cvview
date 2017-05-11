@@ -213,7 +213,9 @@
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=7718874",
       "viewLink": "https://rabota.ua/cv/7718874",
       "resumeCount": 3,
-      "id": 7718874
+      "id": 7718874,
+      "prevID": 3496188,
+      "nextID": 10021936
     },
     {
       "additionals": [],
@@ -323,7 +325,9 @@
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=10021936",
       "viewLink": "https://rabota.ua/cv/10021936",
       "resumeCount": 3,
-      "id": 10021936
+      "id": 10021936,
+      "prevID": 7718874,
+      "nextID": 10466814
     },
     {
       "additionals": [
@@ -444,7 +448,9 @@
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=10466814",
       "viewLink": "https://rabota.ua/cv/10466814",
       "resumeCount": 2,
-      "id": 10466814
+      "id": 10466814,
+      "prevID": 10021936,
+      "nextID": 3496188
     },
     {
       "additionals": [],
@@ -585,7 +591,9 @@
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=3496188",
       "viewLink": "https://rabota.ua/cv/3496188",
       "resumeCount": 3,
-      "id": 3496188
+      "id": 3496188,
+      "prevID": 10466814,
+      "nextID": 7718874
     }
   ],
   "note": [

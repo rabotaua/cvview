@@ -5,7 +5,7 @@ const AdditionalsList = (props) => {
 	const { additionals } = props
 	let title
 
-	if(additionals.length != 0) {
+	if(additionals.length !== 0) {
 		title = <h2 className="fd-syoi f-text-gray">Дополнительная информация</h2>
 	}
 
