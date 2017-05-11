@@ -12,6 +12,7 @@ export default class RefuseJobsearcherDialog extends React.Component {
 			let template = Object.assign(selectedTemplate, {text: val})
 			this.props.saveRefuseTemplate(id, template).then(() => {
 				this.props.getTemplates(3496188)
+				this.closeDialog()
 			})
 		}
 	}
