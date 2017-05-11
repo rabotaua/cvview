@@ -3,7 +3,7 @@ import React from 'react'
 const TrainingsListItem = (props) => {
 	const { training } = props
 
-	return <div style={{fontSize: '14px'}}>
+	return <div className="fd-craftsmen">
 
 		<div className="fd-f-left">
 			<div style={{marginRight: '40px'}}>
@@ -11,7 +11,7 @@ const TrainingsListItem = (props) => {
 			</div>
 			<div>
 				<p>{training.name}</p>
-				<p><div dangerouslySetInnerHTML={{__html: training.description}}/></p>
+				<div dangerouslySetInnerHTML={{__html: training.description}}/>
 				<p>{training.location}</p>
 			</div>
 		</div>

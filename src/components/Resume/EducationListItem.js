@@ -3,7 +3,7 @@ import React from 'react'
 const ExperienceListItem = (props) => {
 	const { education } = props
 
-	return <div style={{fontSize: '14px'}}>
+	return <div className="fd-craftsmen">
 
 		<div className="fd-f-left">
 			<div style={{marginRight: '40px'}}>

@@ -2,11 +2,13 @@ import React from 'react'
 import ExperienceList from '../components/Resume/ExperienceList'
 import CVTextPhoto from '../components/Resume/CVTextPhoto'
 import CVTextPersonalInfo from '../components/Resume/CVTextPersonalInfo'
+import Skills from '../components/Resume/Skills'
 import EducationList from '../components/Resume/EducationList'
 import TrainingsList from '../components/Resume/TrainingsList'
 import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
 import ContactsContainer from '../containers/ContactsContainer'
+import moment from 'moment'
 
 export class CvText extends React.Component {
 	componentWillMount () {
@@ -16,7 +18,7 @@ export class CvText extends React.Component {
 	render () {
 		if (!this.props.isResumeLoaded) return null
 
-		const {experiences, skill, personal, photo, position, educations, trainings, additionals, languages, searchState} = this.props.resume
+		const {experiences, skill, personal, photo, position, educations, trainings, additionals, languages, searchState, updateDate} = this.props.resume
 
 
 		// same as
@@ -30,33 +32,30 @@ export class CvText extends React.Component {
 
 		return <div>
 			<div className="f-paper fd-p20" style={{ marginBottom: 10}}>
+				<div>обновлено {moment(updateDate).format('DD MMMM YYYY')}</div>
+				<br/>
 				<div className="fd-f-left">
 					<div>
 						<CVTextPhoto photo={photo}/>
 					</div>
 					<div>
-						<CVTextPersonalInfo personal={personal} searchState={searchState} experiences={experiences} position={position} cities={this.props.cities} />
+						<CVTextPersonalInfo {...this.props.resume} cities={this.props.cities}  />
 					</div>
 				</div>
 			</div>
 			<ContactsContainer/>
 			<div className="f-paper fd-p20">
-				<h2 style={{fontSize: '22px', color: '#777'}}>Ключевая информация</h2>
-				<div style={{fontSize: '14px'}} dangerouslySetInnerHTML={{__html: skill.text}} />
-				<hr/>
-				<h2 style={{fontSize: '22px', color: '#777'}}>Опыт работы</h2>
+
+				<Skills skill={skill} />
+
 				<ExperienceList experiences={experiences} branches={this.props.branches} />
-				<hr/>
-				<h2 style={{fontSize: '22px', color: '#777'}}>Образование</h2>
+
 				<EducationList educations={educations} />
-				<hr/>
-				<h2 style={{fontSize: '22px', color: '#777'}}>Курсы, тренинги, сертификаты</h2>
+
 				<TrainingsList trainings={trainings} />
-				<hr/>
-				<h2 style={{fontSize: '22px', color: '#777'}}>Дополнительная информация</h2>
+
 				<AdditionalsList additionals={additionals} />
-				<hr/>
-				<h2 style={{fontSize: '22px', color: '#777'}}>Языки</h2>
+
 				<LanguagesList languages={languages} />
 			</div>
 
