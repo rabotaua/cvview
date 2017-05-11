@@ -11,11 +11,13 @@ import vacanciesDictionaryReducer from './vacanciesDictionaryReducer'
 import branchesDictionaryReducer from './branchesDictionaryReducer'
 import inviteTemplatesReducer from './InviteReducers/inviteTemplatesReducer'
 import selectedInviteTemplateReducer from './InviteReducers/selectedInviteTemplateReducer'
-import checkInviteTemplateReducer from './checkInviteTemplateReducer'
+import checkInviteTemplateReducer from './InviteReducers/checkInviteTemplateReducer'
 import userDataReducer from './userDataReducer'
 import inviteDialogReducer from './InviteReducers/inviteDialogReducer'
 import refuseTemplateReducer from './RefuseReducers/refuseTemplateReducer'
 import selectedRefuseTemplateReducer from './RefuseReducers/selectedRefuseTemplateReducer'
+import refuseDialogReducer from './RefuseReducers/refuseDialogReducer'
+import checkRefuseTemplateReducer from './RefuseReducers/checkRefuseTemplateReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -34,7 +36,9 @@ const appReducer = combineReducers({
 	isInviteTemplateToSaveChecked: checkInviteTemplateReducer,
 	isInviteDialogOpen: inviteDialogReducer,
 	refuseTemplates: refuseTemplateReducer,
-	selectedRefuseTemplate: selectedRefuseTemplateReducer
+	selectedRefuseTemplate: selectedRefuseTemplateReducer,
+	isRefuseDialogOpen: refuseDialogReducer,
+	isRefuseTemplateToSaveChecked: checkRefuseTemplateReducer
 })
 
 export default appReducer

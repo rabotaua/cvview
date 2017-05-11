@@ -17,7 +17,8 @@ export default class InviteJobsearcherDialog extends React.Component {
 		if (isInviteTemplateChecked && val) {
 			let template = Object.assign(selectedTemplate, {text: val})
 			this.props.saveInviteTemplate(id, template).then(() => {
-				this.props.getTemplates(3496188)
+				this.props.getTemplates(3496188).
+				this.closeDialog()
 			})
 		}
 	}

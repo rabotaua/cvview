@@ -8,7 +8,7 @@ import {
 	openInviteDialog, closeInviteDialog
 } from '../actions/inviteActions'
 import {getResumeText} from '../actions/resumeActions'
-import VacancyCurrentButtonsContainer from "../components/VacancyCurrentButtonsContainer";
+import VacancyCurrentInviteButtonContainer from "../components/Invite/VacancyCurrentInviteButtonContainer";
 
 class InviteJobsearcherContainer extends React.Component {
 	constructor() {
@@ -52,7 +52,7 @@ class InviteJobsearcherContainer extends React.Component {
 				closeInviteDialog={this.props.closeInviteDialogAction}
 				isInviteDialogOpen={this.props.isInviteDialogOpen}
 				/>
-			<VacancyCurrentButtonsContainer openInviteDialog={this.props.openInviteDialogAction}/>
+			<VacancyCurrentInviteButtonContainer openInviteDialog={this.props.openInviteDialogAction}/>
 		</div>
 	}
 }
