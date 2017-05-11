@@ -7,6 +7,7 @@ import {
 	saveRefuseTemplate
 } from '../actions/refuseActions'
 import RefuseJobsearcherDialog from '../components/Refuse/RefuseJobsearcherDialog'
+import VacancyCurrentRefuseButtonContainer from '../components/Refuse/VacancyCurrentRefuseButtonContainer'
 
 
 class RefuseJobsearcherContainer extends React.Component {
@@ -32,7 +33,6 @@ class RefuseJobsearcherContainer extends React.Component {
 
 	render() {
 		return <div>
-			<h1>Refuse container</h1>
 			<RefuseJobsearcherDialog
 				resume={this.props.resume}
 				getTemplates={this.props.getTemplatesListAction}
@@ -45,7 +45,9 @@ class RefuseJobsearcherContainer extends React.Component {
 				openRefuseDialog={this.props.openRefuseDialogAction}
 				isRefuseTemplateToSaveChecked={this.props.isRefuseTemplateToSaveChecked}
 				checkRefuseTemplate={this.checkRefuseTemplate.bind(this)}
+				isRefuseDialogOpen={this.props.isRefuseDialogOpen}
 			/>
+			<VacancyCurrentRefuseButtonContainer openRefuseDialog={this.props.openRefuseDialogAction}/>
 		</div>
 	}
 }
@@ -55,7 +57,8 @@ const mapStateToProps = state => ({
 	resume: state.resume,
 	refuseTemplates: state.refuseTemplates,
 	selectedRefuseTemplate: state.selectedRefuseTemplate,
-	isRefuseTemplateToSaveChecked: state.isRefuseTemplateToSaveChecked
+	isRefuseTemplateToSaveChecked: state.isRefuseTemplateToSaveChecked,
+	isRefuseDialogOpen: state.isRefuseDialogOpen
 })
 
 const mapDispatchToProps = dispatch => ({

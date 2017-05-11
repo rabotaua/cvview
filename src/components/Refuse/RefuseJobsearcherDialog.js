@@ -36,7 +36,7 @@ export default class RefuseJobsearcherDialog extends React.Component {
 			width: '560px',
 			height: '560px',
 			position: 'fixed',
-			// display: this.props.isRefuseDialogOpen ? 'block' : 'none',
+			display: this.props.isRefuseDialogOpen ? 'block' : 'none',
 			top: '50%',
 			left: '50%',
 			padding: '20px',
