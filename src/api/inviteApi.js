@@ -5,7 +5,6 @@ export const getTemplates = resumeId => fetch(`http://localhost:3001/inviteTempl
 
 export const saveInviteTemplate = (id, template) => {
 	template = JSON.stringify(template)
-	console.log(template)
 	return fetch(`http://localhost:3001/inviteTemplates/${id}`,
 		{
 			method: 'put',

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+import React, {Component} from 'react'
+import {Provider} from 'react-redux'
 import appStore from './store'
 import ShoppingCart from './containers/ShoppingCart'
 import CounterSmart from './containers/CounterSmart'
@@ -8,10 +8,10 @@ import CvTextContainer from './containers/CvTextContainer'
 import NotesContainer from './containers/NotesContainer'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
-import { getBranchesDictionaryAction, getCitiesDictionaryAction } from './actions/dictionaryActions'
-import { signIn } from './actions/authActions'
+import {getBranchesDictionaryAction, getCitiesDictionaryAction} from './actions/dictionaryActions'
+import {signIn} from './actions/authActions'
 import Header from './containers/Header'
-import { getUserDataAction } from './actions/userDataActions'
+import {getUserDataAction} from './actions/userDataActions'
 import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 import RefuseJobsearcherContainer from './containers/RefuseJobsearcherContainer'
 import NextResumeContainer from './containers/NextResumeContainer'
@@ -36,7 +36,7 @@ export default class App extends Component {
 		document.head.appendChild(gaScript)
 	}
 
-	componentWillMount () {
+	componentWillMount() {
 		appStore.dispatch(getCitiesDictionaryAction())
 		appStore.dispatch(getBranchesDictionaryAction())
 
@@ -48,7 +48,7 @@ export default class App extends Component {
 		}
 	}
 
-	render () {
+	render() {
 		return <Provider store={appStore}>
 			<div>
 				<Header/>
@@ -63,6 +63,10 @@ export default class App extends Component {
 						</div>
 						<div className="fd-f1">
 							<div className="fd-c-stretch fd-f-g20">
+								<div className="fd-f">
+									<InviteJobsearcherContainer/>
+									<RefuseJobsearcherContainer/>
+								</div>
 								<CommunicationWrapper />
 								<NotesContainer/>
 							</div>
@@ -78,8 +82,6 @@ export default class App extends Component {
 						<br/>
 						<GaEventsDemo/>
 					</fieldset>
-					<InviteJobsearcherContainer/>
-					<RefuseJobsearcherContainer/>
 				</div>
 			</div>
 		</Provider>

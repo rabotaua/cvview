@@ -14,11 +14,10 @@ export default class TemplatesList extends React.Component {
 				key={template.id}
 				value={template.id}>{template.lng}</option>
 		})
-		return <ul>
-			<h3>Templates list</h3>
+		return <div>
 			<select name="invite_templates" onChange={this.selectTemplate.bind(this)}>
 				{templates}
 			</select>
-		</ul>
+		</div>
 	}
 }

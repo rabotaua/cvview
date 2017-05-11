@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 import {
 	getTemplatesList, selectRefuseTemplate, closeRefuseDialog,
 	openRefuseDialog, checkRefuseTemplateToSave, selectRefuseTemplateChangeText,
-	saveRefuseTemplate
+	saveRefuseTemplate, showRefuseTemplatesList, hideRefuseTemplatesList
 } from '../actions/refuseActions'
 import RefuseJobsearcherDialog from '../components/Refuse/RefuseJobsearcherDialog'
 import VacancyCurrentRefuseButtonContainer from '../components/Refuse/VacancyCurrentRefuseButtonContainer'
@@ -13,13 +13,13 @@ import VacancyCurrentRefuseButtonContainer from '../components/Refuse/VacancyCur
 class RefuseJobsearcherContainer extends React.Component {
 	componentWillMount() {
 		this.props.getTemplatesListAction(3496188)
-		this.props.selectRefuseTemplateAction({
-			id: 2,
-			resumeId: 3496188,
-			text: "Привіт, Андрій Геннадійович Сергієнко!Дякуємо за відгук на вакансію Менеджер з продажу. На жаль, на даний момент ми не готові зробити вам пропозицію. Дякуємо за інтерес до нашої компанії.",
-			createDate: "2017-05-03T02:03:48.51",
-			lng: "ua"
-		})
+		// this.props.selectRefuseTemplateAction({
+		// 	id: 2,
+		// 	resumeId: 3496188,
+		// 	text: "Привіт, Андрій Геннадійович Сергієнко!Дякуємо за відгук на вакансію Менеджер з продажу. На жаль, на даний момент ми не готові зробити вам пропозицію. Дякуємо за інтерес до нашої компанії.",
+		// 	createDate: "2017-05-03T02:03:48.51",
+		// 	lng: "ua"
+		// })
 	}
 
 	saveRefuseTemplate(id, template) {
@@ -46,6 +46,9 @@ class RefuseJobsearcherContainer extends React.Component {
 				isRefuseTemplateToSaveChecked={this.props.isRefuseTemplateToSaveChecked}
 				checkRefuseTemplate={this.checkRefuseTemplate.bind(this)}
 				isRefuseDialogOpen={this.props.isRefuseDialogOpen}
+				showRefuseTemplatesList={this.props.showRefuseTemplatesListAction}
+				hideRefuseTemplatesList={this.props.hideRefuseTemplatesListAction}
+				isRefuseTemplatesListVisible={this.props.isRefuseTemplatesListVisible}
 			/>
 			<VacancyCurrentRefuseButtonContainer openRefuseDialog={this.props.openRefuseDialogAction}/>
 		</div>
@@ -58,7 +61,8 @@ const mapStateToProps = state => ({
 	refuseTemplates: state.refuseTemplates,
 	selectedRefuseTemplate: state.selectedRefuseTemplate,
 	isRefuseTemplateToSaveChecked: state.isRefuseTemplateToSaveChecked,
-	isRefuseDialogOpen: state.isRefuseDialogOpen
+	isRefuseDialogOpen: state.isRefuseDialogOpen,
+	isRefuseTemplatesListVisible: state.isRefuseTemplatesListVisible
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -68,7 +72,9 @@ const mapDispatchToProps = dispatch => ({
 	closeRefuseDialogAction: bindActionCreators(closeRefuseDialog, dispatch),
 	openRefuseDialogAction: bindActionCreators(openRefuseDialog, dispatch),
 	checkRefuseTemplateToSaveAction: bindActionCreators(checkRefuseTemplateToSave, dispatch),
-	selectRefuseTemplateChangeText: bindActionCreators(selectRefuseTemplateChangeText, dispatch)
+	selectRefuseTemplateChangeText: bindActionCreators(selectRefuseTemplateChangeText, dispatch),
+	showRefuseTemplatesListAction: bindActionCreators(showRefuseTemplatesList, dispatch),
+	hideRefuseTemplatesListAction: bindActionCreators(hideRefuseTemplatesList, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RefuseJobsearcherContainer)

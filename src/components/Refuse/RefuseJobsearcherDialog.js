@@ -30,6 +30,18 @@ export default class RefuseJobsearcherDialog extends React.Component {
 		this.props.closeRefuseDialog()
 	}
 
+	toggleRefuseTemplatesList() {
+		let visible = this.props.isRefuseTemplatesListVisible
+		if (visible) {
+			this.props.hideRefuseTemplatesList()
+			this.props.selectRefuseTemplate({})
+			this.refuseTextInput.value = ''
+		} else {
+			this.props.showRefuseTemplatesList()
+			this.props.selectRefuseTemplate(this.props.templates[0])
+		}
+	}
+
 	render() {
 		let {name, middleName, surName} = this.props.resume.personal || {}
 		let selectedRefuseTemplateText = this.props.selectedRefuseTemplate.text
@@ -53,12 +65,15 @@ export default class RefuseJobsearcherDialog extends React.Component {
 				<h4>Кандидат</h4>
 				<p>{`${name} ${middleName} ${surName}`}</p>
 			</div>
-			<RefuseTemplatesList
-				templates={this.props.templates}
-				refuseTextInput={this.refuseTextInput}
-				selectRefuseTemplate={this.props.selectRefuseTemplate}
-				selectedRefuseTemplate={this.props.selectedRefuseTemplate}
-			/>
+			<button onClick={this.toggleRefuseTemplatesList.bind(this)}>Зaгрузить из шаблона</button>
+			<div style={{display: this.props.isRefuseTemplatesListVisible ? 'block' : 'none'}}>
+				<RefuseTemplatesList
+					templates={this.props.templates}
+					refuseTextInput={this.refuseTextInput}
+					selectRefuseTemplate={this.props.selectRefuseTemplate}
+					selectedRefuseTemplate={this.props.selectedRefuseTemplate}
+				/>
+			</div>
 			<form action="#" method="POST" onSubmit={this.addRefuseTemplate.bind(this)}>
 				<textarea
 					value={selectedRefuseTemplateText}
@@ -71,7 +86,8 @@ export default class RefuseJobsearcherDialog extends React.Component {
 						<span>Сохранить шаблон</span>
 						<input type="checkbox" onChange={this.checkRefuseTemplate.bind(this)}/>
 					</label>
-					<input type="submit"/>
+					<input type="submit" value="ОТКАЗАТЬ" style={{marginRight: '10px'}}/>
+					<button onClick={this.closeDialog.bind(this)}>ОТМЕНИТЬ</button>
 				</div>
 			</form>
 		</div>
