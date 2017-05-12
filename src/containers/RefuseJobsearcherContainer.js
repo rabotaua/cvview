@@ -11,6 +11,12 @@ import VacancyCurrentRefuseButtonContainer from '../components/Refuse/VacancyCur
 
 
 class RefuseJobsearcherContainer extends React.Component {
+	constructor() {
+		super()
+		this.saveRefuseTemplate = this.saveRefuseTemplate.bind(this)
+		this.sendRefuse = this.sendRefuse.bind(this)
+	}
+
 	componentWillMount() {
 		this.props.getTemplatesListAction(3496188)
 		// this.props.selectRefuseTemplateAction({
@@ -27,6 +33,11 @@ class RefuseJobsearcherContainer extends React.Component {
 		return this.props.saveRefuseTemplateAction(id, template)
 	}
 
+	sendRefuse() {
+		console.log('Refuse has been sent !!!')
+		this.props.hideRefuseTemplatesListAction()
+	}
+
 	checkRefuseTemplate(isChecked) {
 		this.props.checkRefuseTemplateToSaveAction(isChecked)
 	}
@@ -38,6 +49,7 @@ class RefuseJobsearcherContainer extends React.Component {
 				getTemplates={this.props.getTemplatesListAction}
 				templates={this.props.refuseTemplates}
 				saveRefuseTemplate={this.saveRefuseTemplate.bind(this)}
+				sendRefuse={this.sendRefuse}
 				selectRefuseTemplate={this.props.selectRefuseTemplateAction}
 				selectRefuseTemplateChangeText={this.props.selectRefuseTemplateChangeText}
 				selectedRefuseTemplate={this.props.selectedRefuseTemplate}

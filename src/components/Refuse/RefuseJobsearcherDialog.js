@@ -8,13 +8,24 @@ export default class RefuseJobsearcherDialog extends React.Component {
 		let {id} = selectedTemplate
 		let val = this.refuseTextInput.value
 		let isRefuseTemplateChecked = this.props.isRefuseTemplateToSaveChecked
-		if (isRefuseTemplateChecked && val) {
-			let template = Object.assign(selectedTemplate, {text: val})
+		if (!val) return
+		if (isRefuseTemplateChecked) {
+			let template
+			if (id) {
+				template = Object.assign({}, selectedTemplate, {text: val})
+			} else {
+				id = this.props.templates[0].id
+				template = Object.assign({}, this.props.templates[0], {text: val})
+			}
 			this.props.saveRefuseTemplate(id, template).then(() => {
 				this.props.getTemplates(3496188)
-				this.closeDialog()
+				this.props.selectRefuseTemplate({})
 			})
 		}
+		this.props.sendRefuse()
+		this.closeDialog()
+		this.refuseTextInput.value = ''
+		this.props.selectRefuseTemplate({})
 	}
 
 	onTextChange = event => {

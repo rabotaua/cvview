@@ -15,6 +15,7 @@ class InviteJobsearcherContainer extends React.Component {
 	constructor() {
 		super()
 		this.saveInviteTemplate = this.saveInviteTemplate.bind(this)
+		this.sendInvite = this.sendInvite.bind(this)
 	}
 
 	componentWillMount() {
@@ -28,8 +29,12 @@ class InviteJobsearcherContainer extends React.Component {
 		// })
 	}
 
-	saveInviteTemplate(id, template) {
+	sendInvite() {
 		console.log('Invitation has been sent !!!')
+		this.props.hideInviteTemplatesListAction()
+	}
+
+	saveInviteTemplate(id, template) {
 		return this.props.saveInviteTemplateAction(id, template)
 	}
 
@@ -44,6 +49,7 @@ class InviteJobsearcherContainer extends React.Component {
 				templates={this.props.inviteTemplates}
 				getTemplates={this.props.getTemplatesListAction}
 				saveInviteTemplate={this.saveInviteTemplate}
+				sendInvite={this.sendInvite}
 				selectInviteTemplate={this.props.selectInviteTemplateAction}
 				selectedInviteTemplate={this.props.selectedInviteTemplate}
 				selectInviteTemplateChangeText={this.props.selectInviteTemplateChangeText}
