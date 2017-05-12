@@ -1,14 +1,16 @@
 import { connect } from 'react-redux'
 import { NextResumeItem } from '../components/NextResume/NextResumeItem'
 import { bindActionCreators } from 'redux'
-import { getResumeText } from '../actions/resumeActions'
+import { getResumeText, getNextResumeAction} from '../actions/resumeActions'
 
 const mapStateToProps = (state) => ({
-	resume: state.resume,
+	nextResume: state.nextResume,
+	cities: state.citiesDictionary
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	getResumeText: bindActionCreators(getResumeText, dispatch)
+	getResumeText: bindActionCreators(getResumeText, dispatch),
+	getNextResumeAction: bindActionCreators(getNextResumeAction, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NextResumeItem)

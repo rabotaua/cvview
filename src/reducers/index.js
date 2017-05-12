@@ -20,12 +20,14 @@ import refuseDialogReducer from './RefuseReducers/refuseDialogReducer'
 import checkRefuseTemplateReducer from './RefuseReducers/checkRefuseTemplateReducer'
 import toggleInviteTemplatesListReducer from './InviteReducers/toggleInviteTemplatesListReducer'
 import toggleRefuseTemplatesListReducer from './RefuseReducers/toggleRefuseTemplatesListReducer'
+import nextResumeReducer from "./nextResumeReducer";
 
 const appReducer = combineReducers({
 	counter: counterReducer,
 	shoppingCart,
 	auth: authReducer,
 	resume: resumeReducer,
+	nextResume: nextResumeReducer,
 	notes: notesReducer,
 	notifications: notifyReducer,
 	similar: similarReducer,
