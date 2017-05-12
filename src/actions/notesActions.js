@@ -9,7 +9,7 @@ export const getNotesList = resumeId => dispatch => {
 	})
 }
 
-export const addNewNote = (text, id) => dispatch => {
+export const addNewNote = (text, id, cb) => dispatch => {
 
 	const body = {
 		text,
@@ -36,6 +36,7 @@ export const addNewNote = (text, id) => dispatch => {
 				id: clientId,
 				apiStatus: responseStatus
 			})
+			cb()
 		}, ~~(Math.random() * 2500))
 	})
 }
