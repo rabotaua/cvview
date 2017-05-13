@@ -1,16 +1,13 @@
 import React from 'react'
 import ExperienceListItem from './ExperienceListItem'
+import Title from './Title'
 
 const ExperienceList = (props) => {
 	const { experiences, branches } = props
-	let title
+	let title = 'Опыт работы'
 
-	if(experiences.length !== 0) {
-		title = <h2 className="fd-syoi f-text-gray">Опыт работы</h2>
-	}
-
-	return <div id="cv-experience">
-		{title}
+	return <div id="cv-experiences">
+		{experiences.length ? <Title title={title} /> : ''}
 		{experiences.map(experience => <ExperienceListItem key={experience.id} experience={experience} branches={branches} />)}
 	</div>
 }

@@ -1,16 +1,13 @@
 import React from 'react'
 import TrainingsListItem from './TrainingsListItem'
+import Title from './Title'
 
 const TrainingsList = (props) => {
 	const { trainings } = props
-	let title
+	let title = 'Курсы, тренинги, сертификаты'
 
-	if(trainings.length !== 0) {
-		title = <h2 className="fd-syoi f-text-gray">Курсы, тренинги, сертификаты</h2>
-	}
-
-	return <div>
-		{title}
+	return <div id="cv-trainings">
+		{trainings.length ? <Title title={title} /> : ''}
 		{trainings.map(training => <TrainingsListItem key={training.id} training={training} />)}
 	</div>
 }

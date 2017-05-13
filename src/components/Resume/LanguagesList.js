@@ -1,16 +1,13 @@
 import React from 'react'
 import LanguagesListItem from './LanguagesListItem'
+import Title from './Title'
 
 const LanguagesList = (props) => {
 	const { languages } = props
-	let title
+	let title = 'Языки'
 
-	if(languages.length !== 0) {
-		title = <h2 className="fd-syoi f-text-gray">Языки</h2>
-	}
-
-	return <div>
-		{title}
+	return <div id="cv-languages">
+		{languages.length ? <Title title={title} /> : ''}
 		{languages.map(language => <LanguagesListItem key={language.languageId} language={language} />)}
 	</div>
 }
