@@ -13,7 +13,6 @@ export default class NotesAdd extends Component {
 	}
 
 	showNotification(options) {
-		if (options.type)
 		this._notificationSystem.addNotification(options);
 	}
 

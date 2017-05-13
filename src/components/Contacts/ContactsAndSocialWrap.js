@@ -16,6 +16,7 @@ export default class ContactsAndSocialWrap extends Component {
 				<ContactsPhones
 					additionalPhones={contacts.additionalPhones}
 					phone={contacts.phone}
+					notifs={this.props.notifs}
 				/>
 				<br/>
 				<ContactsEmail email={contacts.email}/>

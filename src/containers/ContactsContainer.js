@@ -4,9 +4,10 @@ import ContactsAndSocialWrap from '../components/Contacts/ContactsAndSocialWrap'
 import { bindActionCreators } from 'redux'
 import { openContacts } from '../actions/contactsActions'
 
-const mapStateToProps = ({ resume, userData }) => ({
+const mapStateToProps = ({ resume, userData, notifs }) => ({
 	contacts: resume.contact,
-	unUsedContacts: userData.unusedContacts
+	unUsedContacts: userData.unusedContacts,
+	notifs
 })
 
 const mapDispatchToProps = dispatch => ({
