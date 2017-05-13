@@ -32,7 +32,6 @@ export class CvText extends React.Component {
 		if (!this.props.isResumeLoaded) return null
 		const {experiences, skill, photo, educations, trainings, additionals, languages, updateDate} = this.props.resume
 
-		// console.log(this.props.resume)
 		return <div>
 			<div className="f-paper fd-p20">
 				<div className="fd-f-between">
@@ -78,7 +77,7 @@ export class CvText extends React.Component {
 					</li>
 				</ul>
 				<Skills skill={skill} />
-				<ExperienceList experiences={experiences} branches={this.props.branches} />
+				<ExperienceList experiences={experiences} />
 				<EducationList educations={educations} />
 				<TrainingsList trainings={trainings} />
 				<AdditionalsList additionals={additionals} />
