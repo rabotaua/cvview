@@ -13,5 +13,6 @@ const notify = (dispatch, type, message) => {
 	setTimeout(() => dispatch(notifyClose(id)), NOTIFY_TIMEOUT)
 }
 
+
 export const notifySuccess = message => dispatch => notify(dispatch, 'NOTIFY_SUCCESS', message)
 export const notifyError = message => dispatch => notify(dispatch, 'NOTIFY_ERROR', message)

@@ -20,7 +20,8 @@ import refuseDialogReducer from './RefuseReducers/refuseDialogReducer'
 import checkRefuseTemplateReducer from './RefuseReducers/checkRefuseTemplateReducer'
 import toggleInviteTemplatesListReducer from './InviteReducers/toggleInviteTemplatesListReducer'
 import toggleRefuseTemplatesListReducer from './RefuseReducers/toggleRefuseTemplatesListReducer'
-import nextResumeReducer from "./nextResumeReducer";
+import nextResumeReducer from "./nextResumeReducer"
+import notifReducer from './notifReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -44,7 +45,8 @@ const appReducer = combineReducers({
 	isRefuseDialogOpen: refuseDialogReducer,
 	isRefuseTemplateToSaveChecked: checkRefuseTemplateReducer,
 	isInviteTemplatesListVisible: toggleInviteTemplatesListReducer,
-	isRefuseTemplatesListVisible: toggleRefuseTemplatesListReducer
+	isRefuseTemplatesListVisible: toggleRefuseTemplatesListReducer,
+	notifs: notifReducer
 })
 
 export default appReducer

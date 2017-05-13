@@ -2,16 +2,23 @@ import React, { Component } from 'react'
 import Notification from 'react-notification-system'
 
 export default class NotesAdd extends Component {
-	componentDidMount() {
-		this._notificationSystem = this.refs.notificationSystem
+	constructor() {
+		super()
 		this.showNotification = this.showNotification.bind(this)
+
 	}
 
-	showNotification() {
-		this._notificationSystem.addNotification({
-			message: 'Notes has been successfully added',
-			level: 'success'
-		});
+	componentDidMount() {
+		this._notificationSystem = this.refs.notificationSystem
+	}
+
+	showNotification(options) {
+		if (options.type)
+		this._notificationSystem.addNotification(options);
+	}
+
+	componentDidUpdate() {
+		this.props.notifs.forEach(this.showNotification)
 	}
 
 	addNewNote(e) {
