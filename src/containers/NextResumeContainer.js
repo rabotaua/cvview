@@ -5,7 +5,6 @@ import { getResumeText, getNextResumeAction} from '../actions/resumeActions'
 
 const mapStateToProps = (state) => ({
 	nextResume: state.nextResume,
-	cities: state.citiesDictionary
 })
 
 const mapDispatchToProps = (dispatch) => ({

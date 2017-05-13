@@ -48,7 +48,7 @@ export class CvText extends React.Component {
 						<CVTextPhoto photo={photo}/>
 					</div>
 					<div>
-						<CVTextPersonalInfo {...this.props.resume} cities={this.props.cities}  />
+						<CVTextPersonalInfo {...this.props.resume} />
 					</div>
 				</div>
 			</div>

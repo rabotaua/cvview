@@ -6,7 +6,6 @@ import BranchesContainer from '../../containers/BranchesContainer'
 
 const ExperienceListItem = (props) => {
 	const { experience } = props
-	// const branchName = (branches.filter(branch => branch.id === experience.branchId)[0] || {ru: ''}).ru
 
 	return <div className="fd-craftsmen">
 		<div className="fd-f-left">
@@ -20,7 +19,6 @@ const ExperienceListItem = (props) => {
 				<br/>
 				<h3><strong>Company Name:</strong></h3>
 				<CompanyName id={experience.notebookCompanyId} name={experience.company} />
-				{/*<h4>branch: {branchName}</h4>*/}
 				<BranchesContainer experience={experience} />
 				<p>{experience.employeesAmount}</p>
 				<h3><strong>Description:</strong></h3>
