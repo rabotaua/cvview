@@ -6,8 +6,6 @@ import { isResumeLoadedSelector } from '../reselect/isResumeLoadedSelector'
 
 const mapStateToProps = (state) => ({
 	resume: state.resume,
-	branches: state.branchesDictionary,
-	cities: state.citiesDictionary,
 	isResumeLoaded: isResumeLoadedSelector(state)
 })
 

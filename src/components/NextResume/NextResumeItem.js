@@ -3,19 +3,16 @@ import moment from 'moment'
 import ResumePhoto from '../Resume/ResumePhoto'
 import ExperienceListSmall from '../Resume/ExperienceListSmall'
 import scrollTo from '../../util/smoothScroll'
+import CityAgeSalaryContainer from '../../containers/CityAgeSalaryContainer'
 
-export const NextResumeItem = ({nextResume, cities, getResumeText}) => {
+export const NextResumeItem = ({nextResume, getResumeText}) => {
 	if(!Object.keys(nextResume).length) {
 		return null
 	}
 
 	const {personal, position, experiences, updateDate} = nextResume
 	const {name, surName, cityId, dateBirth} = personal
-	const {salary} = position
 	const updatedAgo = moment(updateDate).fromNow()
-	const age = moment(dateBirth).fromNow(true)
-	const city = cities[cityId] ? cities[cityId].ru : ''
-
 
 	const getResume = id => {
 		if(id) {
@@ -23,7 +20,6 @@ export const NextResumeItem = ({nextResume, cities, getResumeText}) => {
 		}
 		scrollTo(document.body, 0, 300)
 	}
-
 
 	return <div className="f-paper fd-p20" style={{marginTop: '10px'}}>
 		<h3 className="f-custom-heading f-custom-heading fd-fat-gunso">
@@ -40,13 +36,8 @@ export const NextResumeItem = ({nextResume, cities, getResumeText}) => {
 				</p>
 				<p>
 					<span>{name} {surName}</span>
-					{' '}
-					<span>{city}</span>
-					{' '}
-					<span>{age}</span>
-					{' '}
-					{salary ? <span>${salary}</span> : null}
 				</p>
+				<CityAgeSalaryContainer cityId={cityId} position={position} dateBirth={dateBirth} />
 				<ExperienceListSmall experiences={experiences.slice(0, 2)}/>
 				<p>{updatedAgo}</p>
 			</div>

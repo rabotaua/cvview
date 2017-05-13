@@ -1,7 +1,7 @@
 import React from 'react'
 import { SimilarResumesListItem } from './SimilarResumesListItem'
 
-export const SimiliarResumesList = ({similar = [], citiesDictionary, getResumeText}) => {
+export const SimiliarResumesList = ({similar = [], getResumeText}) => {
 	if (!similar.length) return <div>nothing here</div>
 
 	return <div className="f-paper fd-p20" style={{marginTop: '20px'}}>
@@ -11,7 +11,7 @@ export const SimiliarResumesList = ({similar = [], citiesDictionary, getResumeTe
 			</div>
 			<div>
 				{similar.map(resume =>
-					<SimilarResumesListItem key={resume.id} resume={resume} citiesDictionary={citiesDictionary} getResumeText={getResumeText}/>)}
+					<SimilarResumesListItem key={resume.id} resume={resume} getResumeText={getResumeText}/>)}
 			</div>
 		</div>
 	</div>

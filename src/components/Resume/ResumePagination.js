@@ -14,7 +14,7 @@ export const ResumePagination = ({resume, getResumeText}) => {
 
 	const arrowsStyle = { cursor: 'pointer', color: '#3366cc', userSelect: 'none' }
 
-	return <div className="fd-f-right-middle fd-f-g20">
+	return <div className="fd-f-g20">
 		<span style={arrowsStyle} onClick={() => getResume(prevID)}>
 			<i className="fi-arrows-left"></i>
 			&nbsp;&nbsp;

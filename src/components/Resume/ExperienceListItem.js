@@ -2,10 +2,10 @@ import React from 'react'
 import CompanyName from './CompanyName'
 import Position from './Position'
 import WorkPeriod from './WorkPeriod'
+import BranchesContainer from '../../containers/BranchesContainer'
 
 const ExperienceListItem = (props) => {
-	const { experience, branches } = props
-	const branchName = (branches.filter(branch => branch.id === experience.branchId)[0] || {ru: ''}).ru
+	const { experience } = props
 
 	return <div className="fd-craftsmen">
 		<div className="fd-f-left">
@@ -19,7 +19,7 @@ const ExperienceListItem = (props) => {
 				<br/>
 				<h3><strong>Company Name:</strong></h3>
 				<CompanyName id={experience.notebookCompanyId} name={experience.company} />
-				<h4>branch: {branchName}</h4>
+				<BranchesContainer experience={experience} />
 				<p>{experience.employeesAmount}</p>
 				<h3><strong>Description:</strong></h3>
 				<div dangerouslySetInnerHTML={{__html: experience.description}}/>

@@ -8,6 +8,7 @@ import EducationList from '../components/Resume/EducationList'
 import TrainingsList from '../components/Resume/TrainingsList'
 import AdditionalsList from '../components/Resume/AdditionalsList'
 import LanguagesList from '../components/Resume/LanguagesList'
+import LikeDislikeResumeContainer from '../containers/LikeDislikeResumeContainer'
 import ResumePaginationContainer from '../containers/ResumePaginationContainer'
 import ContactsContainer from '../containers/ContactsContainer'
 import './CVText.css'
@@ -18,26 +19,26 @@ export class CvText extends React.Component {
 		this.props.getResumeText(this.props.resume.id || window.defaultResumeId)
 	}
 
+	goToBlock(e) {
+		const id = e.target.getAttribute('href').slice(1)
+		const elem = document.getElementById(id)
+		if(elem) {
+			scrollTo(document.body, elem.offsetTop, 300)
+		}
+	}
+
+
 	render () {
 		if (!this.props.isResumeLoaded) return null
-
 		const {experiences, skill, photo, educations, trainings, additionals, languages, updateDate} = this.props.resume
-
-		const goToBlock = (elem) =>	{
-			console.log(elem)
-			scrollTo(elem, 0, 300)
-		}
-
-		const experienceBlock = document.getElementById('cv-experience')
-
-		// same as
-		// const personal = this.props.resume.personal
-		// const photo = this.props.resume.photo
-		// const experiences = this.props.resume.experiences
 
 		return <div>
 			<div className="f-paper fd-p20">
-				<ResumePaginationContainer />
+				<div className="fd-f-between">
+					<div className="fd-f-left"><LikeDislikeResumeContainer /></div>
+					<div className="fd-f-right"><ResumePaginationContainer /></div>
+				</div>
+
 			</div>
 			<div className="f-paper fd-p20" style={{ marginBottom: 10}}>
 				<div>обновлено {moment(updateDate).format('DD MMMM YYYY')}</div>
@@ -47,7 +48,7 @@ export class CvText extends React.Component {
 						<CVTextPhoto photo={photo}/>
 					</div>
 					<div>
-						<CVTextPersonalInfo {...this.props.resume} cities={this.props.cities}  />
+						<CVTextPersonalInfo {...this.props.resume} />
 					</div>
 				</div>
 			</div>
@@ -56,27 +57,27 @@ export class CvText extends React.Component {
 				<ul className="cv-text-links-list f-reset-list fd-craftsmen" style={{marginBottom: '30px'}}>
 					<li>
 						{(experiences.length
-							? <a href="" className="f-pseudo-link" onClick={() => goToBlock(experienceBlock)}>Опыт работы</a>
-							: <div></div>)}
+							? <a href="#cv-experiences" className="f-pseudo-link" onClick={this.goToBlock.bind(this)}>Опыт работы</a>
+							: '')}
 					</li>
 					<li>
 						{(educations.length
-							? <a href="" className="f-pseudo-link">Образование</a>
-							: <div></div>)}
+							? <a href="#cv-educations" className="f-pseudo-link" onClick={this.goToBlock.bind(this)}>Образование</a>
+							: '')}
 					</li>
 					<li>
 						{(trainings.length
-							? <a href="" className="f-pseudo-link">Сертификаты</a>
-							: <div></div>)}
+							? <a href="#cv-trainings" className="f-pseudo-link" onClick={this.goToBlock.bind(this)}>Сертификаты</a>
+							: '')}
 					</li>
 					<li>
 						{(languages.length
-							? <a href="" className="f-pseudo-link">Языки</a>
-							: <div></div>)}
+							? <a href="#cv-languages" className="f-pseudo-link" onClick={this.goToBlock.bind(this)}>Языки</a>
+							: '')}
 					</li>
 				</ul>
 				<Skills skill={skill} />
-				<ExperienceList experiences={experiences} branches={this.props.branches} />
+				<ExperienceList experiences={experiences} />
 				<EducationList educations={educations} />
 				<TrainingsList trainings={trainings} />
 				<AdditionalsList additionals={additionals} />

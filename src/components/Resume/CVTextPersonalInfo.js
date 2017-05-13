@@ -1,39 +1,23 @@
 import React from 'react'
-import moment from 'moment'
 import ExperienceListSmall from '../Resume/ExperienceListSmall'
 import PositionsList from '../Resume/PositionsList'
+import CityAgeSalaryContainer from '../../containers/CityAgeSalaryContainer'
 
 const CVTextPersonalInfo = (props) => {
-	const { experiences, personal, position, cities, searchState } = props
+	const { experiences, personal, position, searchState } = props
 	const {name, surName, cityId, dateBirth} = personal
-	const {salary} = position
-
 	const searchStatus = searchState ? 'Активно ищу работу' : 'Работаю но открыт для предложений'
-
-	const age = moment().format('YYYY') - moment(dateBirth).format('YYYY')
-	const city = cities[cityId] ? cities[cityId].ru : ''
 
 	return <div>
 		<div style={{fontSize : '20px', fontWeight : 'bold'}}>
 			{name} {surName}
 		</div>
-		<div>
-			<PositionsList experiences={experiences} />
-		</div>
+		<PositionsList experiences={experiences} />
 		<br/>
-		<div className="fd-f-left">
-			<p style={{marginRight: '10px'}}>{city} </p>
-			<p style={{marginRight: '10px'}}>{age} years </p>
-			<p>{salary} грн. </p>
-		</div>
-		<div>
-			<p style={{color: '#5fc378'}}>{searchStatus}</p>
-		</div>
-		<div>
-			<ExperienceListSmall experiences={experiences.slice(0, 2)}/>
-		</div>
+		<CityAgeSalaryContainer cityId={cityId} position={position} dateBirth={dateBirth} />
+		<p style={{color: '#5fc378'}}>{searchStatus}</p>
+		<ExperienceListSmall experiences={experiences.slice(0, 2)}/>
 	</div>
 }
-
 
 export default CVTextPersonalInfo

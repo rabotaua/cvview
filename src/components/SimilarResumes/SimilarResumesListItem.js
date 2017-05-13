@@ -3,14 +3,12 @@ import ResumePhoto from '../Resume/ResumePhoto'
 import ExperienceListSmall from '../Resume/ExperienceListSmall'
 import moment from 'moment'
 import scrollTo from '../../util/smoothScroll'
+import CityAgeSalaryContainer from '../../containers/CityAgeSalaryContainer'
 
-export const SimilarResumesListItem = ({resume, citiesDictionary, getResumeText}) => {
+export const SimilarResumesListItem = ({resume, getResumeText}) => {
 	const {personal, position, experiences, updateDate} = resume
 	const {name, surName, cityId, dateBirth} = personal
-	const {salary} = position
 	const updatedAgo = moment(updateDate).fromNow()
-	const age = moment(dateBirth).fromNow(true)
-	const city = citiesDictionary[cityId] ? citiesDictionary[cityId].ru : ''
 
 	const getResume = id => {
 		getResumeText(id)
@@ -28,13 +26,8 @@ export const SimilarResumesListItem = ({resume, citiesDictionary, getResumeText}
 			</p>
 			<p>
 				<span>{name} {surName}</span>
-				{' '}
-				<span>{city}</span>
-				{' '}
-				<span>{age}</span>
-				{' '}
-				{salary ? <span>${salary}</span> : null}
 			</p>
+			<CityAgeSalaryContainer cityId={cityId} position={position} dateBirth={dateBirth} />
 			<ExperienceListSmall experiences={experiences.slice(0, 2)}/>
 		</div>
 		<div>
