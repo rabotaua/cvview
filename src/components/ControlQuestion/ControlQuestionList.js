@@ -28,6 +28,7 @@ export default class ControlQuestionList extends React.Component {
 		return <div>
 			<h3 onClick={this.toggleList} style={{cursor: 'pointer'}}>
 				<b>Ответы на контрольные вопросы</b>
+				<p style={{float: 'right'}}>Итого: <span style={{color: '#ff8800'}}>{this.props.controlQuestionsPercentage}%</span></p>
 			</h3>
 			<ul style={{display: this.state.isExpanded ? 'block' : 'none', listStyle: 'none', paddingLeft: 0}}>
 				{controlQuestions}

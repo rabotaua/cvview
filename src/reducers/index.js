@@ -23,6 +23,7 @@ import toggleRefuseTemplatesListReducer from './RefuseReducers/toggleRefuseTempl
 import notifReducer from './notifReducer'
 import likeDislikeResumeReducer from './likeDislikeResumeReducer'
 import nextResumeReducer from "./nextResumeReducer"
+import controlQuestionReducer from './controlQuestionReducer'
 
 const appReducer = combineReducers({
 	counter: counterReducer,
@@ -48,7 +49,8 @@ const appReducer = combineReducers({
 	isInviteTemplatesListVisible: toggleInviteTemplatesListReducer,
 	notifs: notifReducer,
 	isRefuseTemplatesListVisible: toggleRefuseTemplatesListReducer,
-	likeDislikeResume: likeDislikeResumeReducer
+	likeDislikeResume: likeDislikeResumeReducer,
+	controlQuestions: controlQuestionReducer
 })
 
 export default appReducer
