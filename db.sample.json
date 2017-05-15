@@ -212,6 +212,26 @@
       "updateDate": "2017-05-04T09:34:40.21",
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=7718874",
       "viewLink": "https://rabota.ua/cv/7718874",
+      "controlQuestions": [
+        {
+          "id": 1,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "answer": "до 1-го года",
+          "isAnswered": true
+        },
+        {
+          "id": 2,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "answer": "до 1-го года",
+          "isAnswered": true
+        },
+        {
+          "id": 3,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "answer": "до 1-го года",
+          "isAnswered": true
+        }
+      ],
       "resumeCount": 3,
       "id": 7718874,
       "prevID": 3496188,
@@ -324,6 +344,31 @@
       "updateDate": "2017-05-04T09:34:45.173",
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=10021936",
       "viewLink": "https://rabota.ua/cv/10021936",
+      "controlQuestions": [
+        {
+          "id": 4,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "answer": "до 1-го года",
+          "isAnswered": true
+        },
+        {
+          "id": 5,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "answer": "до 1-го года",
+          "isAnswered": true
+        },
+        {
+          "id": 6,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "isAnswered": false
+        },
+        {
+          "id": 7,
+          "question": "Are you fucking motherfucker ?",
+          "answer": "Noooo !!!!",
+          "isAnswered": true
+        }
+      ],
       "resumeCount": 3,
       "id": 10021936,
       "prevID": 7718874,
@@ -447,6 +492,24 @@
       "updateDate": "2017-05-04T09:29:59.057",
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=10466814",
       "viewLink": "https://rabota.ua/cv/10466814",
+      "controlQuestions": [
+        {
+          "id": 8,
+          "question": "Укажите ваш опыт работы на позиции UX Designer:",
+          "isAnswered": false
+        },
+        {
+          "id": 9,
+          "question": "How many balls do you have ?",
+          "isAnswered": false
+        },
+        {
+          "id": 10,
+          "question": "Do you speak Suahili ? ",
+          "answer": "Ya-ya",
+          "isAnswered": true
+        }
+      ],
       "resumeCount": 2,
       "id": 10466814,
       "prevID": 10021936,
@@ -590,6 +653,19 @@
       "updateDate": "2017-05-03T02:03:48.51",
       "rtfLink": "https://rabota.ua/service/cvexport?resumeId=3496188",
       "viewLink": "https://rabota.ua/cv/3496188",
+      "controlQuestions": [
+        {
+          "id": 10,
+          "question": "Укажите ваш опыт работы на позиции Porn actor:",
+          "isAnswered": false
+        },
+        {
+          "id": 11,
+          "question": "How old are you, maaaan ?",
+          "answer": "I'm 130",
+          "isAnswered": true
+        }
+      ],
       "resumeCount": 3,
       "id": 3496188,
       "prevID": 10466814,
