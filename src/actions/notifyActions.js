@@ -19,12 +19,33 @@ const notify = (dispatch, type, message) => {
 export const notifySuccess = message => dispatch => {
 	const uid = Date.now()
 
-	notify(dispatch, 'NOTIFY_SUCCESS', message)
+	// notify(dispatch, 'NOTIFY_SUCCESS', message)
 	dispatch({
 		uid,
-		type: actions.NOTES_SUCCESS_NOTIFICATION,
-		message: 'Your note has been successfully added !',
+		type: actions.VACANCY_SUCCESS_NOTIFICATION,
+		message: 'You have been successfully sent the vacancy !',
 		level: 'success'
 	})
+	setTimeout(() => {
+			dispatch({
+				uid,
+				type: actions.REMOVE_NOTIFICATION
+			})
+		}, 5000)
 }
-export const notifyError = message => dispatch => notify(dispatch, 'NOTIFY_ERROR', message)
+export const notifyError = message => dispatch => {
+	const uid = Date.now()
+	notify(dispatch, 'NOTIFY_ERROR', message)
+	dispatch({
+		uid,
+		type: actions.VACANCY_FAIL_NOTIFICATION,
+		message: 'You\'ve got an error sending the vacancy !',
+		level: 'success'
+	})
+	setTimeout(() => {
+			dispatch({
+				uid,
+				type: actions.REMOVE_NOTIFICATION
+			})
+		}, 5000)
+}
