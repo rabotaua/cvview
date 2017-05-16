@@ -1,11 +1,11 @@
 import React from 'react'
 import authHoc from '../authHoc'
 import SendVacancyContainer from '../../containers/SendVacancyContainer'
-import SendMessage from '../../containers/SendMessage'
+import SendMessageContainer from '../../containers/SendMessageContainer'
 
 export const CommunicationWrapper = () => <div className="f-paper fd-p20">
 	<SendVacancyContainer />
-	<SendMessage/>
+	<SendMessageContainer />
 </div>
 
 export default authHoc(CommunicationWrapper)(null)
