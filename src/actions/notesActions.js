@@ -1,4 +1,5 @@
-import { addNewNoteApi, getResumeNotes } from '../api/notesApi'
+import {addNewNoteApi, getResumeNotes} from '../api/notesApi'
+import * as actions from '../actions/actionConst'
 
 export const getNotesList = resumeId => dispatch => {
 	getResumeNotes(resumeId).then(notes => {
@@ -9,7 +10,7 @@ export const getNotesList = resumeId => dispatch => {
 	})
 }
 
-export const addNewNote = (text, id, cb) => dispatch => {
+export const addNewNote = (text, id) => dispatch => {
 
 	const body = {
 		text,
@@ -28,15 +29,38 @@ export const addNewNote = (text, id, cb) => dispatch => {
 	})
 
 	addNewNoteApi(body).then(response => {
-		const responseStatus = (response.status >= 200 && response.status < 400)
+			const responseStatus = (response.status >= 200 && response.status < 400)
 
-		setTimeout(() => {
-			dispatch({
-				type: 'CHANGE_NOTE_STATUS',
-				id: clientId,
-				apiStatus: responseStatus
-			})
-			cb()
-		}, ~~(Math.random() * 2500))
-	})
+			setTimeout(() => {
+				dispatch({
+					type: 'CHANGE_NOTE_STATUS',
+					id: clientId,
+					apiStatus: responseStatus
+				})
+				const uid = Date.now()
+
+				if (responseStatus) {
+					dispatch({
+						uid,
+						type: actions.NOTES_SUCCESS_NOTIFICATION,
+						message: 'Your note has been successfully added !',
+						level: 'success'
+					})
+				} else {
+					dispatch({
+						uid,
+						type: actions.NOTES_FAIL_NOTIFICATION,
+						message: 'Adding the notes has been failed',
+						level: 'success'
+					})
+				}
+				setTimeout(() => {
+					dispatch({
+						uid,
+						type: actions.REMOVE_NOTIFICATION
+					})
+				}, 5000)
+			}, ~~(Math.random() * 2500))
+		}
+	)
 }

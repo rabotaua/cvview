@@ -42,7 +42,7 @@ export default class NotesList extends Component {
 		return <div className="f-paper fd-p20">
 			<p>Notes: { notes && notes.length ? notes.length : '' }</p>
 
-			<NotesAdd resumeId={resumeId} addNewNoteAction={this.props.addNewNoteAction}/>
+			<NotesAdd resumeId={resumeId} addNewNoteAction={this.props.addNewNoteAction} notifs={this.props.notesNotifs}/>
 
 			{ notes && notes.length ? <ul style={ulStyle}>
 				{notes.map(note => {

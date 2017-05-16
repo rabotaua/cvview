@@ -3,10 +3,13 @@ import authHoc from '../components/authHoc'
 import ContactsAndSocialWrap from '../components/Contacts/ContactsAndSocialWrap'
 import { bindActionCreators } from 'redux'
 import { openContacts } from '../actions/contactsActions'
+import { contactsNotifsSelector } from '../reselect/notifsSelector'
 
-const mapStateToProps = ({ resume, userData }) => ({
-	contacts: resume.contact,
-	unUsedContacts: userData.unusedContacts
+const mapStateToProps = state => ({
+	contacts: state.resume.contact,
+	unUsedContacts: state.userData.unusedContacts,
+	notifs: state.notifs,
+	contactsNotifs: contactsNotifsSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({

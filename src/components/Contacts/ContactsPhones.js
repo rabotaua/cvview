@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
+import Notification from 'react-notification-system'
 
 export default class ContactsPhones extends Component {
+	constructor() {
+		super()
+		this.showNotification = this.showNotification.bind(this)
+	}
+
+	componentDidMount() {
+		this._notificationSystem = this.refs.notificationSystem
+	}
+
+	showNotification(options) {
+		this._notificationSystem.addNotification(options);
+	}
+
+	componentDidUpdate() {
+		this.props.notifs.forEach(this.showNotification)
+	}
+
 	render() {
 		const { phone, additionalPhones } = this.props
 
@@ -17,6 +35,7 @@ export default class ContactsPhones extends Component {
 					</p>))
 				: null
 			}
+			<Notification ref="notificationSystem" />
 		</div>
 	}
 }

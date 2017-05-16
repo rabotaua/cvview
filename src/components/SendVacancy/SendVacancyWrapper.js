@@ -62,7 +62,7 @@ export class SendVacancyWrapper extends React.Component {
 				{this.state.error && <p style={{color: 'red'}}>{this.state.error}</p>}
 				<SendVacancyForm vacanciesDictionary={vacanciesDictionary} onSubmit={this.onSubmit}/>
 			</ReactModal>
-			: <SendVacancyTrigger showModal={this.showModal}/>
+			: <SendVacancyTrigger showModal={this.showModal} notifs={this.props.vacancyNotifs}/>
 	}
 }
 

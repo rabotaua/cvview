@@ -17,7 +17,10 @@ export const getResumeText = id => dispatch => {
 			type: 'GET_RESUME',
 			resume
 		})
-
+		dispatch({
+			type: 'GET_CONTROL_QUESTIONS',
+			resume
+		})
 		dispatch(getNotesList(resume.id))
 		dispatch(getSimilarResumesAction(resume.id))
 		dispatch(getNextResumeAction(resume.nextID))

@@ -16,6 +16,7 @@ import InviteJobsearcherContainer from './containers/InviteJobsearcherContainer'
 import RefuseJobsearcherContainer from './containers/RefuseJobsearcherContainer'
 import NextResumeContainer from './containers/NextResumeContainer'
 import CommunicationWrapper from './components/Communication/CommunicationWrapper'
+import ControlQuestionContainer from './containers/ControlQuestionContainer'
 import GaEventsDemo from './containers/GaEventsDemo'
 
 const gaCode = `
@@ -73,6 +74,7 @@ export default class App extends Component {
 						</div>
 					</div>
 					<SimilarResumesContainer />
+					<ControlQuestionContainer/>
 					<fieldset style={{marginTop: 100}}>
 						<legend>Examples</legend>
 						<ShoppingCart/>
