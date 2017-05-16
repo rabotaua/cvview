@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ResumePhoto = ({resume, getResumeText}) => {
-	const {id, photo, position} = resume
+const ResumePhoto = ({photo, id, position, getResumeText}) => {
 	return <div>
-		<img style={{ cursor: 'pointer' }} src={photo} alt={position.position} onClick={() => getResumeText(id)}/>
+		<img style={{ cursor: 'pointer' }} src={photo} alt={position} onClick={() => getResumeText(id)}/>
 	</div>
 }
 

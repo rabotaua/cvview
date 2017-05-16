@@ -6,7 +6,7 @@ import scrollTo from '../../util/smoothScroll'
 import CityAgeSalaryContainer from '../../containers/CityAgeSalaryContainer'
 
 export const SimilarResumesListItem = ({resume, getResumeText}) => {
-	const {personal, position, experiences, updateDate} = resume
+	const {id, personal, position, experiences, updateDate, photo} = resume
 	const {name, surName, cityId, dateBirth} = personal
 	const updatedAgo = moment(updateDate).fromNow()
 
@@ -17,7 +17,7 @@ export const SimilarResumesListItem = ({resume, getResumeText}) => {
 
 	return <div className="fd-f-left-middle fd-f-g20">
 		<div>
-			<ResumePhoto resume={resume} getResumeText={getResume}/>
+			<ResumePhoto photo={photo} position={position} id={id} getResumeText={getResume}/>
 		</div>
 		<div className="fd-f1">
 			<p>
