@@ -11,8 +11,7 @@ class ControlQuestionContainer extends React.Component {
 	}
 
 	render() {
-		return <div>
-			<h2>Control question container</h2>
+		return <div style={{marginTop: '20px'}}>
 			<ControlQuestionList controlQuestionsPercentage={this.props.controlQuestionsPercentage} controlQuestions={this.props.controlQuestions}/>
 		</div>
 	}
