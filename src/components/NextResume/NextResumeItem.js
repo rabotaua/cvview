@@ -10,7 +10,7 @@ export const NextResumeItem = ({nextResume, getResumeText}) => {
 		return null
 	}
 
-	const {personal, position, experiences, updateDate} = nextResume
+	const {id, photo, personal, position, experiences, updateDate} = nextResume
 	const {name, surName, cityId, dateBirth} = personal
 	const updatedAgo = moment(updateDate).fromNow()
 
@@ -27,7 +27,7 @@ export const NextResumeItem = ({nextResume, getResumeText}) => {
 		</h3>
 		<div className="fd-f-left-middle fd-f-g20">
 			<div style={{marginTop: '20px'}}>
-				<ResumePhoto resume={nextResume} getResumeText={getResume}/>
+				<ResumePhoto photo={photo} position={position} id={id} getResumeText={getResume}/>
 			</div>
 			<div className="fd-f1">
 				<p>
