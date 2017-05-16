@@ -8,6 +8,7 @@ import CvTextContainer from './containers/CvTextContainer'
 import NotesContainer from './containers/NotesContainer'
 import NotificationsContainer from './containers/NotificationsContainer'
 import SimilarResumesContainer from './containers/SimilarResumesContainer'
+import { getResumeText } from './actions/resumeActions'
 import {getBranchesDictionaryAction, getCitiesDictionaryAction} from './actions/dictionaryActions'
 import {signIn} from './actions/authActions'
 import Header from './containers/Header'
@@ -38,6 +39,7 @@ export default class App extends Component {
 	}
 
 	componentWillMount() {
+		appStore.dispatch(getResumeText(appStore.getState().resume.id || window.defaultResumeId))
 		appStore.dispatch(getCitiesDictionaryAction())
 		appStore.dispatch(getBranchesDictionaryAction())
 

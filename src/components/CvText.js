@@ -15,10 +15,6 @@ import './CVText.css'
 import scrollTo from '../util/smoothScroll'
 
 export class CvText extends React.Component {
-	componentWillMount () {
-		this.props.getResumeText(this.props.resume.id || window.defaultResumeId)
-	}
-
 	goToBlock(e) {
 		const id = e.target.getAttribute('href').slice(1)
 		const elem = document.getElementById(id)
