@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Provider} from 'react-redux'
 import appStore from './store'
+import { Route, Router, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import ShoppingCart from './containers/ShoppingCart'
 import CounterSmart from './containers/CounterSmart'
 import RestrictedContent from './containers/RestrictedContent'
